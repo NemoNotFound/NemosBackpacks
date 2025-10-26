@@ -140,20 +140,9 @@ public class BackpackMenu extends AbstractContainerMenu {
         return this.container.stillValid(player);
     }
 
-    //TODO: Find better solution for workaround
     @Override
     public void clicked(int slotId, int button, @NotNull ClickType clickType, @NotNull Player player) {
-        var containerSize = container.getContainerSize();
-        var playerInventoryContainerSize = 27;
-        var hotbarSize = 9;
-        var hotbarStartIndex = containerSize + playerInventoryContainerSize;
-        var hotbarEndIndex = hotbarStartIndex + hotbarSize - 1;
-        var isSlotIdWithinHotbarBounds = slotId >= hotbarStartIndex && slotId <= hotbarEndIndex;
-
-        if (
-                (isSlotIdWithinHotbarBounds && playerInventory.getItem(slotId - containerSize - playerInventoryContainerSize) == itemStack) ||
-                        (slotId >= 9 && clickType.equals(ClickType.SWAP) && playerInventory.getItem(button) == itemStack)
-        ) {
+        if (itemStack.isEmpty() || isItemBackpackInUse(slotId, clickType, button)) {
             return;
         }
 
@@ -162,6 +151,17 @@ public class BackpackMenu extends AbstractContainerMenu {
         storeBackpackItems();
     }
 
+    private boolean isItemBackpackInUse(int slotId, ClickType clickType, int button) {
+        var containerSize = container.getContainerSize();
+        var playerInventoryContainerSize = 27;
+        var hotbarSize = 9;
+        var hotbarStartIndex = containerSize + playerInventoryContainerSize;
+        var hotbarEndIndex = hotbarStartIndex + hotbarSize - 1;
+        var isSlotIdWithinHotbarBounds = slotId >= hotbarStartIndex && slotId <= hotbarEndIndex;
+
+        return (isSlotIdWithinHotbarBounds && playerInventory.getItem(slotId - containerSize - playerInventoryContainerSize) == itemStack) ||
+                (slotId >= 9 && clickType.equals(ClickType.SWAP) && playerInventory.getItem(button) == itemStack);
+    }
 
     @Override
     public void removed(@NotNull Player player) {
