@@ -1,5 +1,6 @@
 package com.devnemo.nemos.backpacks.world.inventory;
 
+import com.devnemo.nemos.backpacks.world.item.BackpackMaterial;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -22,65 +23,67 @@ public class BackpackMenu extends AbstractContainerMenu {
     private final int containerRows;
     private final ItemStack itemStack;
     private final Inventory playerInventory;
+    private final BackpackMaterial backpackMaterial;
 
     public static BackpackMenu defaultBackpack(int containerId, Inventory playerInventory) {
-        return new BackpackMenu(NemosBackpackMenuTypes.DEFAULT_BACKPACK.get(), containerId, playerInventory, 1);
+        return new BackpackMenu(NemosBackpackMenuTypes.DEFAULT_BACKPACK.get(), containerId, BackpackMaterial.STRING, playerInventory, 1);
     }
 
     public static BackpackMenu defaultBackpack(int containerId, Inventory playerInventory, ItemStack itemStack, Container container) {
-        return new BackpackMenu(NemosBackpackMenuTypes.DEFAULT_BACKPACK.get(), containerId, playerInventory, itemStack, container, 1);
+        return new BackpackMenu(NemosBackpackMenuTypes.DEFAULT_BACKPACK.get(), containerId, BackpackMaterial.STRING, playerInventory, itemStack, container, 1);
     }
 
     public static BackpackMenu copperBackpack(int containerId, Inventory playerInventory) {
-        return new BackpackMenu(NemosBackpackMenuTypes.COPPER_BACKPACK.get(), containerId, playerInventory, 2);
+        return new BackpackMenu(NemosBackpackMenuTypes.COPPER_BACKPACK.get(), containerId, BackpackMaterial.COPPER, playerInventory, 2);
     }
 
     public static BackpackMenu copperBackpack(int containerId, Inventory playerInventory, ItemStack itemStack, Container container) {
-        return new BackpackMenu(NemosBackpackMenuTypes.COPPER_BACKPACK.get(), containerId, playerInventory, itemStack, container, 2);
+        return new BackpackMenu(NemosBackpackMenuTypes.COPPER_BACKPACK.get(), containerId, BackpackMaterial.COPPER, playerInventory, itemStack, container, 2);
     }
 
     public static BackpackMenu ironBackpack(int containerId, Inventory playerInventory) {
-        return new BackpackMenu(NemosBackpackMenuTypes.IRON_BACKPACK.get(), containerId, playerInventory, 3);
+        return new BackpackMenu(NemosBackpackMenuTypes.IRON_BACKPACK.get(), containerId, BackpackMaterial.IRON, playerInventory, 3);
     }
 
     public static BackpackMenu ironBackpack(int containerId, Inventory playerInventory, ItemStack itemStack, Container container) {
-        return new BackpackMenu(NemosBackpackMenuTypes.IRON_BACKPACK.get(), containerId, playerInventory, itemStack, container, 3);
+        return new BackpackMenu(NemosBackpackMenuTypes.IRON_BACKPACK.get(), containerId, BackpackMaterial.IRON, playerInventory, itemStack, container, 3);
     }
 
     public static BackpackMenu goldenBackpack(int containerId, Inventory playerInventory) {
-        return new BackpackMenu(NemosBackpackMenuTypes.GOLDEN_BACKPACK.get(), containerId, playerInventory, 4);
+        return new BackpackMenu(NemosBackpackMenuTypes.GOLDEN_BACKPACK.get(), containerId, BackpackMaterial.GOLD, playerInventory, 4);
     }
 
     public static BackpackMenu goldenBackpack(int containerId, Inventory playerInventory, ItemStack itemStack, Container container) {
-        return new BackpackMenu(NemosBackpackMenuTypes.GOLDEN_BACKPACK.get(), containerId, playerInventory, itemStack, container, 4);
+        return new BackpackMenu(NemosBackpackMenuTypes.GOLDEN_BACKPACK.get(), containerId, BackpackMaterial.GOLD, playerInventory, itemStack, container, 4);
     }
 
     public static BackpackMenu diamondBackpack(int containerId, Inventory playerInventory) {
-        return new BackpackMenu(NemosBackpackMenuTypes.DIAMOND_BACKPACK.get(), containerId, playerInventory, 5);
+        return new BackpackMenu(NemosBackpackMenuTypes.DIAMOND_BACKPACK.get(), containerId, BackpackMaterial.DIAMOND, playerInventory, 5);
     }
 
     public static BackpackMenu diamondBackpack(int containerId, Inventory playerInventory, ItemStack itemStack, Container container) {
-        return new BackpackMenu(NemosBackpackMenuTypes.DIAMOND_BACKPACK.get(), containerId, playerInventory, itemStack, container, 5);
+        return new BackpackMenu(NemosBackpackMenuTypes.DIAMOND_BACKPACK.get(), containerId, BackpackMaterial.DIAMOND, playerInventory, itemStack, container, 5);
     }
 
     public static BackpackMenu netheriteBackpack(int containerId, Inventory playerInventory) {
-        return new BackpackMenu(NemosBackpackMenuTypes.NETHERITE_BACKPACK.get(), containerId, playerInventory, 6);
+        return new BackpackMenu(NemosBackpackMenuTypes.NETHERITE_BACKPACK.get(), containerId, BackpackMaterial.NETHERITE, playerInventory, 6);
     }
 
     public static BackpackMenu netheriteBackpack(int containerId, Inventory playerInventory, ItemStack itemStack, Container container) {
-        return new BackpackMenu(NemosBackpackMenuTypes.NETHERITE_BACKPACK.get(), containerId, playerInventory, itemStack, container, 6);
+        return new BackpackMenu(NemosBackpackMenuTypes.NETHERITE_BACKPACK.get(), containerId, BackpackMaterial.NETHERITE, playerInventory, itemStack, container, 6);
     }
 
-    private BackpackMenu(MenuType<?> type, int containerId, Inventory playerInventory, int rows) {
-        this(type, containerId, playerInventory, ItemStack.EMPTY, new SimpleContainer(9 * rows), rows);
+    private BackpackMenu(MenuType<?> type, int containerId, BackpackMaterial backpackMaterial, Inventory playerInventory, int rows) {
+        this(type, containerId, backpackMaterial, playerInventory, ItemStack.EMPTY, new SimpleContainer(9 * rows), rows);
     }
 
-    public BackpackMenu(@Nullable MenuType<?> menuType, int containerId, Inventory playerInventory, ItemStack itemStack, Container container, int rows) {
+    public BackpackMenu(@Nullable MenuType<?> menuType, int containerId, BackpackMaterial backpackMaterial, Inventory playerInventory, ItemStack itemStack, Container container, int rows) {
         super(menuType, containerId);
         checkContainerSize(container, rows * 9);
         this.container = container;
         this.containerRows = rows;
         this.itemStack = itemStack;
+        this.backpackMaterial = backpackMaterial;
         this.playerInventory = playerInventory;
         container.startOpen(playerInventory.player);
 
@@ -179,5 +182,9 @@ public class BackpackMenu extends AbstractContainerMenu {
 
     public int getRowCount() {
         return this.containerRows;
+    }
+
+    public BackpackMaterial getBackpackMaterial() {
+        return backpackMaterial;
     }
 }
