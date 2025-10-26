@@ -1,7 +1,6 @@
-# Changelog v1.1.1
+# Changelog v1.2
+
+## Additions
+- Added Backpack Slot
 
 ## Changes
-- Updated backpack item tags
-
-## Fixes
-- Prevented backpacks from being placed inside other backpacks via inventory interactions
