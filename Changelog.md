@@ -3,6 +3,7 @@
 ## Additions
 - Added Backpack Slot
 - Added Backpack Tier Overlay Textures (transparent by default; customizable via resource packs)
+- Added Backpack Background Textures per Color (same as default texture; customizable via resource packs)
 
 ## Changes
 
