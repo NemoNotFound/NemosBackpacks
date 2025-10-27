@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.devnemo.nemos.backpacks.mixin",
+  "package": "com.nemonotfound.nemos.backpacks.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [],
   "client": [],
