@@ -142,5 +142,8 @@ public class UkrainianLanguageProvider extends FabricLanguageProvider {
 
         translationBuilder.add("itemGroup." + MOD_ID, "Nemo's Backpacks");
         translationBuilder.add(MOD_ID + ".container.backpack", "Рюкзак");
+        translationBuilder.add("key.category." + MOD_ID + "." + MOD_ID, "Nemo's Backpacks");
+        translationBuilder.add(MOD_ID + ".key.swapBackpack", "Змінити рюкзаки в слоті рюкзака");
+        translationBuilder.add(MOD_ID + ".key.interactBackpack", "Відкрити / закрити рюкзак");
     }
 }
