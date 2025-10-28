@@ -12,7 +12,7 @@ import static com.devnemo.nemos.backpacks.Constants.MOD_ID;
 public class UkrainianLanguageProvider extends FabricLanguageProvider {
 
     public UkrainianLanguageProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
-        super(dataOutput, registryLookup);
+        super(dataOutput, "uk_ua", registryLookup);
     }
 
     @Override
