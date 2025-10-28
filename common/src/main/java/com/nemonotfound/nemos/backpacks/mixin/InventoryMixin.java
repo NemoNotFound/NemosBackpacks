@@ -28,7 +28,7 @@ public class InventoryMixin {
 
     @Inject(method = "setItem", at = @At("TAIL"))
     private void setBackpackItem(int index, ItemStack stack, CallbackInfo ci) {
-        if (index == SLOT_BACKPACK && stack.getItem() instanceof BackpackItem) {
+        if (index == SLOT_BACKPACK && (stack.getItem() instanceof BackpackItem || stack.isEmpty())) {
             nemosBackpacks$backpackItemStack = stack;
         }
     }
@@ -69,6 +69,36 @@ public class InventoryMixin {
         }
 
         return original;
+    }
+
+    @Inject(method = "removeItem(Lnet/minecraft/world/item/ItemStack;)V", at = @At("RETURN"))
+    private void removeBackpackItem(ItemStack stack, CallbackInfo ci) {
+        if (stack == nemosBackpacks$backpackItemStack) {
+            nemosBackpacks$backpackItemStack = ItemStack.EMPTY;
+        }
+    }
+
+    @ModifyReturnValue(method = "removeItemNoUpdate", at = @At("RETURN"))
+    private ItemStack removeBackpackNoUpdate(ItemStack original, @Local(argsOnly = true) int index) {
+        if (original.isEmpty() && index == SLOT_BACKPACK) {
+            return nemosBackpacks$backpackItemStack = ItemStack.EMPTY;
+        }
+
+        return original;
+    }
+
+    @ModifyReturnValue(method = "getContainerSize", at = @At("RETURN"))
+    private int getContainerSize(int original) {
+        return original + 1;
+    }
+
+    @ModifyReturnValue(method = "isEmpty", at = @At("RETURN"))
+    private boolean isEmpty(boolean original) {
+        if (original) {
+            return nemosBackpacks$backpackItemStack == ItemStack.EMPTY;
+        }
+
+        return false;
     }
 
     @Inject(method = "dropAll", at = @At("TAIL"))
