@@ -4,6 +4,8 @@ import com.nemonotfound.nemos.backpacks.world.inventory.BackpackMenu;
 import com.nemonotfound.nemos.backpacks.world.item.BackpackMaterial;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.input.KeyEvent;
+import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -15,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.nemonotfound.nemos.backpacks.Constants.MOD_ID;
+import static com.nemonotfound.nemos.backpacks.client.BackpackKeyMappings.INTERACT_BACKPACK;
 
 public class BackpackScreen extends AbstractContainerScreen<BackpackMenu> {
 
@@ -48,6 +51,28 @@ public class BackpackScreen extends AbstractContainerScreen<BackpackMenu> {
         guiGraphics.blit(RenderPipelines.GUI_TEXTURED, backpackBackground, leftPos, topPos + this.containerRows * 18 + 17, 0.0F, 126.0F, this.imageWidth, 96, 256, 256);
         guiGraphics.blit(RenderPipelines.GUI_TEXTURED, backpackOverlay, leftPos, topPos, 0.0F, 0.0F, this.imageWidth, this.containerRows * 18 + 17, 256, 256);
         guiGraphics.blit(RenderPipelines.GUI_TEXTURED, backpackOverlay, leftPos, topPos + this.containerRows * 18 + 17, 0.0F, 126.0F, this.imageWidth, 96, 256, 256);
+    }
+
+    @Override
+    public boolean keyPressed(@NotNull KeyEvent event) {
+        if (INTERACT_BACKPACK.get().matches(event)) {
+            this.onClose();
+
+            return true;
+        }
+
+        return super.keyPressed(event);
+    }
+
+    @Override
+    public boolean mouseClicked(@NotNull MouseButtonEvent event, boolean isDoubleClick) {
+        if (INTERACT_BACKPACK.get().matchesMouse(event)) {
+            this.onClose();
+
+            return true;
+        }
+
+        return super.mouseClicked(event, isDoubleClick);
     }
 
     static {

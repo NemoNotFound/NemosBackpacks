@@ -142,5 +142,8 @@ public class EnglishLanguageProvider extends FabricLanguageProvider {
 
         translationBuilder.add("itemGroup." + MOD_ID, "Nemo's Backpacks");
         translationBuilder.add(MOD_ID + ".container.backpack", "Backpack");
+        translationBuilder.add("key.category." + MOD_ID + "." + MOD_ID, "Nemo's Backpacks");
+        translationBuilder.add(MOD_ID + ".key.swapBackpack", "Swap Backpack With Backpack Slot");
+        translationBuilder.add(MOD_ID + ".key.interactBackpack", "Open/Close Backpack");
     }
 }

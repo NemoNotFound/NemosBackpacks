@@ -25,6 +25,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 
 import static com.nemonotfound.nemos.backpacks.Constants.MOD_ID;
+import static com.nemonotfound.nemos.backpacks.Constants.SLOT_BACKPACK;
 
 public class BackpackItem extends Item {
 
@@ -39,16 +40,26 @@ public class BackpackItem extends Item {
     }
 
     @Override
-    public @NotNull InteractionResult use(@NotNull Level level, Player player, @NotNull InteractionHand interactionHand) {
-        player.openMenu(createScreenHandlerFactory(player, interactionHand));
+    public @NotNull InteractionResult use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand interactionHand) {
+        var backpackItemStack = getBackpackItemStack(player, interactionHand);
+        player.openMenu(createScreenHandlerFactory(backpackItemStack));
         player.awardStat(Stats.ITEM_USED.get(this));
 
         return InteractionResult.SUCCESS;
     }
 
+    private ItemStack getBackpackItemStack(Player player, InteractionHand interactionHand) {
+        if (interactionHand == null) {
+            var playerInventory = player.getInventory();
+
+            return playerInventory.getItem(SLOT_BACKPACK);
+        }
+
+        return player.getItemInHand(interactionHand);
+    }
+
     @Nullable
-    public MenuProvider createScreenHandlerFactory(Player player, @NotNull InteractionHand interactionHand) {
-        var itemStack = player.getItemInHand(interactionHand);
+    public MenuProvider createScreenHandlerFactory(ItemStack itemStack) {
         var components = itemStack.getComponents();
         var itemContainerContents = components.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY);
         var slotCountPerRow = 9;

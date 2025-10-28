@@ -12,7 +12,8 @@
     "SmithingTemplateItemMixin"
   ],
   "client": [
-    "CreativeModeInventoryScreenMixin"
+    "CreativeModeInventoryScreenMixin",
+    "MinecraftMixin"
   ],
   "server": [],
   "injectors": {
