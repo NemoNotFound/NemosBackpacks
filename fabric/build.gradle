@@ -85,6 +85,8 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
     mainFile.releaseType = 'release'
     mainFile.addEnvironment("Client")
     mainFile.addJavaVersion("Java 21")
+    mainfile.addRequirement("fabric-api")
+    mainfile.addRequirement("common-network")
 }
 
 modrinth {
@@ -96,6 +98,7 @@ modrinth {
     uploadFile.set(tasks.remapJar)
     dependencies {
         required.project("fabric-api")
+        required.project("common-network")
     }
 }
 tasks.modrinth.dependsOn(tasks.remapJar)
