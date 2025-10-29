@@ -124,6 +124,6 @@
   "itemGroup.nemos_backpacks": "Nemo's Backpacks",
   "key.category.nemos_backpacks.nemos_backpacks": "Nemo's Backpacks",
   "nemos_backpacks.container.backpack": "Backpack",
-  "nemos_backpacks.key.backpack": "Open/Close Backpack",
+  "nemos_backpacks.key.interactBackpack": "Open/Close Backpack",
   "nemos_backpacks.key.swapBackpack": "Swap Backpack With Backpack Slot"
 }

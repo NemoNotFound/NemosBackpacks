@@ -25,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 
 import static com.nemonotfound.nemos.backpacks.Constants.MOD_ID;
-import static com.nemonotfound.nemos.backpacks.Constants.SLOT_BACKPACK;
+import static com.nemonotfound.nemos.backpacks.Constants.BACKPACK_SLOT;
 
 public class BackpackItem extends Item {
 
@@ -52,7 +52,7 @@ public class BackpackItem extends Item {
         if (interactionHand == null) {
             var playerInventory = player.getInventory();
 
-            return playerInventory.getItem(SLOT_BACKPACK);
+            return playerInventory.getItem(BACKPACK_SLOT);
         }
 
         return player.getItemInHand(interactionHand);

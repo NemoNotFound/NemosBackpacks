@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 
 import static com.nemonotfound.nemos.backpacks.Constants.MOD_ID;
-import static com.nemonotfound.nemos.backpacks.Constants.SLOT_BACKPACK;
+import static com.nemonotfound.nemos.backpacks.Constants.BACKPACK_SLOT;
 
 public class BackpackSwapPacket {
 
@@ -40,14 +40,14 @@ public class BackpackSwapPacket {
 
         if (!player.isSpectator()) {
             var playerInventory = player.getInventory();
-            var backpackItemstack = playerInventory.getItem(SLOT_BACKPACK);
+            var backpackItemstack = playerInventory.getItem(BACKPACK_SLOT);
             var itemStackInHand = player.getItemInHand(InteractionHand.MAIN_HAND);
 
             if (!itemStackInHand.isEmpty() && !(itemStackInHand.getItem() instanceof BackpackItem)) {
                 return;
             }
 
-            playerInventory.setItem(SLOT_BACKPACK, itemStackInHand);
+            playerInventory.setItem(BACKPACK_SLOT, itemStackInHand);
             player.setItemInHand(InteractionHand.MAIN_HAND, backpackItemstack);
             player.stopUsingItem();
         }

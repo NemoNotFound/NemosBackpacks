@@ -9,7 +9,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 
 import static com.nemonotfound.nemos.backpacks.Constants.MOD_ID;
-import static com.nemonotfound.nemos.backpacks.Constants.SLOT_BACKPACK;
+import static com.nemonotfound.nemos.backpacks.Constants.BACKPACK_SLOT;
 
 public class BackpackInteractPacket {
 
@@ -37,7 +37,7 @@ public class BackpackInteractPacket {
 
         var player = context.sender();
         var playerInventory = player.getInventory();
-        var item = playerInventory.getItem(SLOT_BACKPACK).getItem();
+        var item = playerInventory.getItem(BACKPACK_SLOT).getItem();
 
         if (item instanceof BackpackItem) {
             item.use(player.level(), player, null);

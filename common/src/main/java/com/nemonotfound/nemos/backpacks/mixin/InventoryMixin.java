@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static com.nemonotfound.nemos.backpacks.Constants.SLOT_BACKPACK;
+import static com.nemonotfound.nemos.backpacks.Constants.BACKPACK_SLOT;
 
 @Mixin(Inventory.class)
 public class InventoryMixin {
@@ -28,7 +28,7 @@ public class InventoryMixin {
 
     @Inject(method = "setItem", at = @At("TAIL"))
     private void setBackpackItem(int index, ItemStack stack, CallbackInfo ci) {
-        if (index == SLOT_BACKPACK && (stack.getItem() instanceof BackpackItem || stack.isEmpty())) {
+        if (index == BACKPACK_SLOT && (stack.getItem() instanceof BackpackItem || stack.isEmpty())) {
             nemosBackpacks$backpackItemStack = stack;
         }
     }
@@ -36,7 +36,7 @@ public class InventoryMixin {
     @Inject(method = "save", at = @At("TAIL"))
     private void saveBackpack(ValueOutput.TypedOutputList<ItemStackWithSlot> output, CallbackInfo ci) {
         if (!nemosBackpacks$backpackItemStack.isEmpty()) {
-            output.add(new ItemStackWithSlot(SLOT_BACKPACK, nemosBackpacks$backpackItemStack));
+            output.add(new ItemStackWithSlot(BACKPACK_SLOT, nemosBackpacks$backpackItemStack));
         }
     }
 
@@ -45,7 +45,7 @@ public class InventoryMixin {
         this.nemosBackpacks$backpackItemStack = ItemStack.EMPTY;
 
         var optionalBackpackItem = input.stream()
-                .filter(itemStackWithSlot -> itemStackWithSlot.slot() == SLOT_BACKPACK)
+                .filter(itemStackWithSlot -> itemStackWithSlot.slot() == BACKPACK_SLOT)
                 .findFirst();
 
         optionalBackpackItem.ifPresent(itemStackWithSlot -> nemosBackpacks$backpackItemStack = itemStackWithSlot.stack());
@@ -53,7 +53,7 @@ public class InventoryMixin {
 
     @ModifyReturnValue(method = "getItem", at = @At("RETURN"))
     private ItemStack getBackpackItem(ItemStack original, @Local(argsOnly = true) int index) {
-        if (original.isEmpty() && index == SLOT_BACKPACK) {
+        if (original.isEmpty() && index == BACKPACK_SLOT) {
             return nemosBackpacks$backpackItemStack;
         }
 
@@ -62,7 +62,7 @@ public class InventoryMixin {
 
     @ModifyReturnValue(method = "removeItem(II)Lnet/minecraft/world/item/ItemStack;", at = @At("RETURN"))
     private ItemStack removeBackpackItem(ItemStack original, @Local(ordinal = 0, argsOnly = true) int index, @Local(ordinal = 1, argsOnly = true) int count) {
-        if (original.isEmpty() && index == SLOT_BACKPACK) {
+        if (original.isEmpty() && index == BACKPACK_SLOT) {
             if (!nemosBackpacks$backpackItemStack.isEmpty()) {
                 return nemosBackpacks$backpackItemStack.split(count);
             }
@@ -80,7 +80,7 @@ public class InventoryMixin {
 
     @ModifyReturnValue(method = "removeItemNoUpdate", at = @At("RETURN"))
     private ItemStack removeBackpackNoUpdate(ItemStack original, @Local(argsOnly = true) int index) {
-        if (original.isEmpty() && index == SLOT_BACKPACK) {
+        if (original.isEmpty() && index == BACKPACK_SLOT) {
             return nemosBackpacks$backpackItemStack = ItemStack.EMPTY;
         }
 

@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import static com.nemonotfound.nemos.backpacks.Constants.MOD_ID;
-import static com.nemonotfound.nemos.backpacks.Constants.SLOT_BACKPACK;
+import static com.nemonotfound.nemos.backpacks.Constants.BACKPACK_SLOT;
 
 @Mixin(InventoryMenu.class)
 public abstract class InventoryMenuMixin extends AbstractContainerMenu {
@@ -34,7 +34,7 @@ public abstract class InventoryMenuMixin extends AbstractContainerMenu {
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void addBackpackSlot(Inventory playerInventory, boolean active, Player owner, CallbackInfo ci) {
-        this.addSlot(new Slot(playerInventory, SLOT_BACKPACK, 77, 26) {
+        this.addSlot(new Slot(playerInventory, BACKPACK_SLOT, 77, 26) {
             public boolean mayPlace(@NotNull ItemStack stack) {
                 return stack.getItem() instanceof BackpackItem;
             }
@@ -47,8 +47,8 @@ public abstract class InventoryMenuMixin extends AbstractContainerMenu {
 
     @Inject(method = "quickMoveStack", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;getEquipmentSlotForItem(Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/entity/EquipmentSlot;", shift = At.Shift.AFTER), cancellable = true)
     private void quickMoveBackpack(Player player, int index, CallbackInfoReturnable<ItemStack> cir, @Local(ordinal = 1) ItemStack itemStack, @Local(ordinal = 0) ItemStack copyOfItemStack) {
-        if (index != SLOT_BACKPACK && itemStack.getItem() instanceof BackpackItem) {
-            if (this.moveItemStackTo(itemStack, SLOT_BACKPACK, SLOT_BACKPACK + 1, false)) {
+        if (index != BACKPACK_SLOT && itemStack.getItem() instanceof BackpackItem) {
+            if (this.moveItemStackTo(itemStack, BACKPACK_SLOT, BACKPACK_SLOT + 1, false)) {
                 cir.setReturnValue(copyOfItemStack);
             }
         }

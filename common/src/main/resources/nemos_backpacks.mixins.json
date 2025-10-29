@@ -5,6 +5,7 @@
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_18",
   "mixins": [
+    "AbstractContainerMenuMixin",
     "InventoryMenuMixin",
     "InventoryMixin",
     "ItemMixin",
@@ -12,7 +13,9 @@
     "SmithingTemplateItemMixin"
   ],
   "client": [
+    "AbstractContainerScreenMixin",
     "CreativeModeInventoryScreenMixin",
+    "GuiMixin",
     "MinecraftMixin"
   ],
   "server": [],
