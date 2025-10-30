@@ -16,13 +16,13 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "com.devnemo.nemos.backpacks.FabricNemosBackpacks"
+            "com.nemonotfound.nemos.backpacks.FabricNemosBackpacks"
         ],
         "client": [
-            "com.devnemo.nemos.backpacks.FabricClientNemosBackpacks"
+            "com.nemonotfound.nemos.backpacks.FabricClientNemosBackpacks"
         ],
         "fabric-datagen": [
-            "com.devnemo.nemos.backpacks.DataGenerator"
+            "com.nemonotfound.nemos.backpacks.DataGenerator"
         ]
     },
     "mixins": [
