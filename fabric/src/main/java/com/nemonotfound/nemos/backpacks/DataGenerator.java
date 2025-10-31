@@ -4,7 +4,7 @@ import com.nemonotfound.nemos.backpacks.datagen.BackpackRecipeProvider;
 import com.nemonotfound.nemos.backpacks.datagen.ItemTagProvider;
 import com.nemonotfound.nemos.backpacks.datagen.ModelProvider;
 import com.nemonotfound.nemos.backpacks.datagen.lang.EnglishLanguageProvider;
-import com.devnemo.nemos.backpacks.datagen.lang.UkrainianLanguageProvider;
+import com.nemonotfound.nemos.backpacks.datagen.lang.UkrainianLanguageProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
