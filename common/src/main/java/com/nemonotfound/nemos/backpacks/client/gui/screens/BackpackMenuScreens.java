@@ -1,0 +1,124 @@
+package com.nemonotfound.nemos.backpacks.client.gui.screens;
+
+import com.nemonotfound.nemos.backpacks.client.gui.screens.inventory.BackpackScreen;
+import com.nemonotfound.nemos.backpacks.platform.Services;
+import com.nemonotfound.nemos.backpacks.world.inventory.BackpackMenuTypes;
+import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.inventory.MenuAccess;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.MenuType;
+
+import java.util.function.Supplier;
+
+public class BackpackMenuScreens {
+
+    public static void init() {
+        register(BackpackMenuTypes.DEFAULT_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DEFAULT_WHITE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DEFAULT_LIGHT_GRAY_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DEFAULT_GRAY_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DEFAULT_BLACK_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DEFAULT_BROWN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DEFAULT_RED_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DEFAULT_ORANGE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DEFAULT_YELLOW_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DEFAULT_LIME_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DEFAULT_GREEN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DEFAULT_CYAN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DEFAULT_LIGHT_BLUE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DEFAULT_BLUE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DEFAULT_PURPLE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DEFAULT_MAGENTA_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DEFAULT_PINK_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.COPPER_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.COPPER_WHITE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.COPPER_LIGHT_GRAY_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.COPPER_GRAY_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.COPPER_BLACK_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.COPPER_BROWN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.COPPER_RED_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.COPPER_ORANGE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.COPPER_YELLOW_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.COPPER_LIME_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.COPPER_GREEN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.COPPER_CYAN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.COPPER_LIGHT_BLUE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.COPPER_BLUE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.COPPER_PURPLE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.COPPER_MAGENTA_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.COPPER_PINK_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.IRON_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.IRON_WHITE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.IRON_LIGHT_GRAY_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.IRON_GRAY_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.IRON_BLACK_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.IRON_BROWN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.IRON_RED_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.IRON_ORANGE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.IRON_YELLOW_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.IRON_LIME_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.IRON_GREEN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.IRON_CYAN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.IRON_LIGHT_BLUE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.IRON_BLUE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.IRON_PURPLE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.IRON_MAGENTA_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.IRON_PINK_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.GOLDEN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.GOLDEN_WHITE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.GOLDEN_LIGHT_GRAY_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.GOLDEN_GRAY_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.GOLDEN_BLACK_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.GOLDEN_BROWN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.GOLDEN_RED_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.GOLDEN_ORANGE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.GOLDEN_YELLOW_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.GOLDEN_LIME_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.GOLDEN_GREEN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.GOLDEN_CYAN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.GOLDEN_LIGHT_BLUE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.GOLDEN_BLUE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.GOLDEN_PURPLE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.GOLDEN_MAGENTA_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.GOLDEN_PINK_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DIAMOND_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DIAMOND_WHITE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DIAMOND_LIGHT_GRAY_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DIAMOND_GRAY_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DIAMOND_BLACK_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DIAMOND_BROWN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DIAMOND_RED_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DIAMOND_ORANGE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DIAMOND_YELLOW_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DIAMOND_LIME_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DIAMOND_GREEN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DIAMOND_CYAN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DIAMOND_LIGHT_BLUE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DIAMOND_BLUE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DIAMOND_PURPLE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DIAMOND_MAGENTA_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.DIAMOND_PINK_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.NETHERITE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.NETHERITE_WHITE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.NETHERITE_LIGHT_GRAY_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.NETHERITE_GRAY_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.NETHERITE_BLACK_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.NETHERITE_BROWN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.NETHERITE_RED_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.NETHERITE_ORANGE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.NETHERITE_YELLOW_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.NETHERITE_LIME_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.NETHERITE_GREEN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.NETHERITE_CYAN_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.NETHERITE_LIGHT_BLUE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.NETHERITE_BLUE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.NETHERITE_PURPLE_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.NETHERITE_MAGENTA_BACKPACK, BackpackScreen::new);
+        register(BackpackMenuTypes.NETHERITE_PINK_BACKPACK, BackpackScreen::new);
+    }
+
+    public static <M extends AbstractContainerMenu, U extends Screen & MenuAccess<M>> void register(Supplier<MenuType<M>> menuTypeSupplier, MenuScreens.ScreenConstructor<M, U> screenConstructor) {
+        Services.REGISTRY_HELPER.registerMenuScreen(menuTypeSupplier, screenConstructor);
+    }
+}
