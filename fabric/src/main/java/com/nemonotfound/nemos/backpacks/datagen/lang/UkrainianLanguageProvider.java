@@ -1,13 +1,13 @@
-package com.devnemo.nemos.backpacks.datagen.lang;
+package com.nemonotfound.nemos.backpacks.datagen.lang;
 
-import com.devnemo.nemos.backpacks.world.item.NemosBackpackItems;
+import com.nemonotfound.nemos.backpacks.world.item.NemosBackpackItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
 
 import java.util.concurrent.CompletableFuture;
 
-import static com.devnemo.nemos.backpacks.Constants.MOD_ID;
+import static com.nemonotfound.nemos.backpacks.Constants.MOD_ID;
 
 public class UkrainianLanguageProvider extends FabricLanguageProvider {
 
