@@ -4,7 +4,9 @@
   "package": "com.nemonotfound.nemos.backpacks.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [],
-  "client": [],
+  "client": [
+    "GuiMixin"
+  ],
   "server": [],
   "injectors": {
     "defaultRequire": 1
