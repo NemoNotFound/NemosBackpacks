@@ -83,10 +83,10 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
     mainFile.changelog = file('../changelog.md')
     mainFile.displayName = findProperty('mod_name') + ' Fabric ' + findProperty('version')
     mainFile.releaseType = 'release'
-    mainFile.addEnvironment("Client")
+    mainFile.addEnvironment("Client", "Server")
     mainFile.addJavaVersion("Java 21")
-    mainfile.addRequirement("fabric-api")
-    mainfile.addRequirement("common-network")
+    mainFile.addRequirement("fabric-api")
+    mainFile.addRequirement("common-network")
 }
 
 modrinth {
