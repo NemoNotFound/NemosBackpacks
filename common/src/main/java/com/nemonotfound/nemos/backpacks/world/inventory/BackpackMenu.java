@@ -918,11 +918,11 @@ public class BackpackMenu extends AbstractContainerMenu {
 
     @Override
     public void clicked(int slotId, int button, @NotNull ClickType clickType, @NotNull Player player) {
+        super.clicked(slotId, button, clickType, player);
+
         if (itemStack.isEmpty() || isItemBackpackInUse(slotId, clickType, button)) {
             return;
         }
-
-        super.clicked(slotId, button, clickType, player);
 
         storeBackpackItems();
     }
