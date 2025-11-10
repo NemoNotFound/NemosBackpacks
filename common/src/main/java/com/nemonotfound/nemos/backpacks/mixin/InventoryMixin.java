@@ -1,5 +1,6 @@
 package com.nemonotfound.nemos.backpacks.mixin;
 
+import com.nemonotfound.nemos.backpacks.helper.BackpackGetter;
 import com.nemonotfound.nemos.backpacks.world.item.BackpackItem;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.sugar.Local;
@@ -20,9 +21,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import static com.nemonotfound.nemos.backpacks.Constants.BACKPACK_SLOT;
 
 @Mixin(Inventory.class)
-public class InventoryMixin {
+public abstract class InventoryMixin implements BackpackGetter {
 
     @Shadow @Final public Player player;
+
+    @Shadow public abstract void setItem(int slot, ItemStack stack);
+
     @Unique
     private ItemStack nemosBackpacks$backpackItemStack = ItemStack.EMPTY;
 
@@ -107,5 +111,15 @@ public class InventoryMixin {
             player.drop(nemosBackpacks$backpackItemStack, true, false);
             nemosBackpacks$backpackItemStack = ItemStack.EMPTY;
         }
+    }
+
+    @Inject(method = "replaceWith", at = @At("HEAD"))
+    private void keepBackpack(Inventory playerInventory, CallbackInfo ci) {
+        setItem(BACKPACK_SLOT, ((BackpackGetter) playerInventory).nemosBackpacks$getBackpack());
+    }
+
+    @Override
+    public ItemStack nemosBackpacks$getBackpack() {
+        return nemosBackpacks$backpackItemStack;
     }
 }

@@ -1,4 +1,4 @@
-# Changelog v1.2.1.1
+# Changelog v1.2.2
 
 ## Fixes
-- Fixed not being able to open colored backpacks.
+- Backpack drops with keepInventory on.
