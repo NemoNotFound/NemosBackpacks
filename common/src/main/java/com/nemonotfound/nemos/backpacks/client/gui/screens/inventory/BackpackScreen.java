@@ -79,6 +79,12 @@ public class BackpackScreen extends AbstractContainerScreen<BackpackMenu> {
     }
 
     private static ResourceLocation getOverlayTextureLocation(BackpackMaterial backpackMaterial) {
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, String.format("textures/gui/container/backpack/overlay/%s_backpack_overlay.png", backpackMaterial.getName()));
+        var backpackMaterialName = "default";
+
+        if (backpackMaterial != null) {
+            backpackMaterialName = backpackMaterial.getName();
+        }
+
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, String.format("textures/gui/container/backpack/overlay/%s_backpack_overlay.png", backpackMaterialName));
     }
 }
