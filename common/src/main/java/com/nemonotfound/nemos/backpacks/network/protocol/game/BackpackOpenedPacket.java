@@ -27,7 +27,7 @@ public class BackpackOpenedPacket {
     }
 
     public BackpackOpenedPacket(FriendlyByteBuf buf) {
-        this.itemStack = buf.readLenientJsonWithCodec(ItemStack.CODEC);
+        this.itemStack = buf.readJsonWithCodec(ItemStack.CODEC);
     }
 
     public void encode(FriendlyByteBuf buf) {
