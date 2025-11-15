@@ -28,6 +28,12 @@ type="required" #mandatory (Can be one of "required", "optional", "incompatible"
 versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
+[[dependencies.${mod_id}]]
+modId = "commonnetworking"
+type = "required"
+versionRange = "[${common_networking_version},)"
+ordering = "NONE"
+side = "BOTH"
 [[accessTransformers]]
 file="META-INF/common/accesstransformer.cfg"
 
