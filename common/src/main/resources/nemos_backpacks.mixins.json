@@ -15,6 +15,7 @@
   "client": [
     "AbstractContainerScreenMixin",
     "CreativeModeInventoryScreenMixin",
+    "LocalPlayerMixin",
     "MinecraftMixin"
   ],
   "server": [],
