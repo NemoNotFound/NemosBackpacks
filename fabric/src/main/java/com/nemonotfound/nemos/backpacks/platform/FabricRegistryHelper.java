@@ -10,6 +10,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.MenuAccess;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -94,6 +95,14 @@ public class FabricRegistryHelper implements IRegistryHelper {
     @Override
     public <M extends AbstractContainerMenu, U extends Screen & MenuAccess<M>> void registerMenuScreen(Supplier<MenuType<M>> menuTypeSupplier, MenuScreens.ScreenConstructor<M, U> screenConstructor) {
         MenuScreens.register(menuTypeSupplier.get(), screenConstructor);
+    }
+
+    @Override
+    public <T> Supplier<DataComponentType<T>> registerDataComponent(String id, DataComponentType<T> dataComponentType) {
+        var resourceLocation = ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
+        var registeredDataComponentType = Registry.register(BuiltInRegistries.DATA_COMPONENT_TYPE, resourceLocation, dataComponentType);
+
+        return () -> registeredDataComponentType;
     }
 
     private static <T, R extends Registry<? super T>> Supplier<T> registerSupplier(R registry, String id, Supplier<T> object) {
