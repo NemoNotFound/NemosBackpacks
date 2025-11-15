@@ -1,11 +1,15 @@
 package com.nemonotfound.nemos.backpacks.world.item;
 
+import com.nemonotfound.nemos.backpacks.network.protocol.game.BackpackOpenedPacket;
 import com.nemonotfound.nemos.backpacks.tags.BackpackItemTags;
 import com.nemonotfound.nemos.backpacks.world.inventory.BackpackMenu;
+import commonnetwork.api.Dispatcher;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
@@ -24,8 +28,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 
-import static com.nemonotfound.nemos.backpacks.Constants.MOD_ID;
 import static com.nemonotfound.nemos.backpacks.Constants.BACKPACK_SLOT;
+import static com.nemonotfound.nemos.backpacks.Constants.MOD_ID;
+import static net.minecraft.world.inventory.AbstractContainerMenu.SLOTS_PER_ROW;
 
 public class BackpackItem extends Item {
 
@@ -39,9 +44,15 @@ public class BackpackItem extends Item {
         this.dyeColor = dyeColor;
     }
 
+    //TODO: Set dataComponent to check if used
     @Override
     public @NotNull InteractionResult use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand interactionHand) {
         var backpackItemStack = getBackpackItemStack(player, interactionHand);
+
+        if (level instanceof ServerLevel) {
+            Dispatcher.sendToClient(new BackpackOpenedPacket(backpackItemStack), (ServerPlayer) player);
+        }
+
         player.openMenu(createScreenHandlerFactory(backpackItemStack));
         player.awardStat(Stats.ITEM_USED.get(this));
 
@@ -58,12 +69,19 @@ public class BackpackItem extends Item {
         return player.getItemInHand(interactionHand);
     }
 
+    public DyeColor getDyeColor() {
+        return dyeColor;
+    }
+
+    public BackpackMaterial getBackpackMaterial() {
+        return backpackMaterial;
+    }
+
     @Nullable
     public MenuProvider createScreenHandlerFactory(ItemStack itemStack) {
         var components = itemStack.getComponents();
         var itemContainerContents = components.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY);
-        var slotCountPerRow = 9;
-        var container = new SimpleContainer(slotCountPerRow * getRowCount());
+        var container = new SimpleContainer(SLOTS_PER_ROW * backpackMaterial.getRows());
         var items = itemContainerContents.stream().toList();
 
         for (int i = 0; i < items.size(); i++) {
@@ -72,151 +90,12 @@ public class BackpackItem extends Item {
 
         return new SimpleMenuProvider(
                 (syncId, playerInventory, player1) -> switch (backpackMaterial) {
-                    case STRING -> {
-                        if (dyeColor == null) {
-                            yield BackpackMenu.defaultBackpack(syncId, playerInventory, itemStack, container);
-                        } else {
-                            yield switch (dyeColor) {
-                                case WHITE -> BackpackMenu.defaultWhiteBackpack(syncId, playerInventory, itemStack, container);
-                                case LIGHT_GRAY -> BackpackMenu.defaultLightGrayBackpack(syncId, playerInventory, itemStack, container);
-                                case GRAY -> BackpackMenu.defaultGrayBackpack(syncId, playerInventory, itemStack, container);
-                                case BLACK -> BackpackMenu.defaultBlackBackpack(syncId, playerInventory, itemStack, container);
-                                case BROWN -> BackpackMenu.defaultBrownBackpack(syncId, playerInventory, itemStack, container);
-                                case RED -> BackpackMenu.defaultRedBackpack(syncId, playerInventory, itemStack, container);
-                                case ORANGE -> BackpackMenu.defaultOrangeBackpack(syncId, playerInventory, itemStack, container);
-                                case YELLOW -> BackpackMenu.defaultYellowBackpack(syncId, playerInventory, itemStack, container);
-                                case LIME -> BackpackMenu.defaultLimeBackpack(syncId, playerInventory, itemStack, container);
-                                case GREEN -> BackpackMenu.defaultGreenBackpack(syncId, playerInventory, itemStack, container);
-                                case CYAN -> BackpackMenu.defaultCyanBackpack(syncId, playerInventory, itemStack, container);
-                                case LIGHT_BLUE -> BackpackMenu.defaultLightBlueBackpack(syncId, playerInventory, itemStack, container);
-                                case BLUE -> BackpackMenu.defaultBlueBackpack(syncId, playerInventory, itemStack, container);
-                                case PURPLE -> BackpackMenu.defaultPurpleBackpack(syncId, playerInventory, itemStack, container);
-                                case MAGENTA -> BackpackMenu.defaultMagentaBackpack(syncId, playerInventory, itemStack, container);
-                                case PINK -> BackpackMenu.defaultPinkBackpack(syncId, playerInventory, itemStack, container);
-                            };
-                        }
-                    }
-
-                    case COPPER -> {
-                        if (dyeColor == null) {
-                            yield BackpackMenu.copperBackpack(syncId, playerInventory, itemStack, container);
-                        } else {
-                            yield switch (dyeColor) {
-                                case WHITE -> BackpackMenu.copperWhiteBackpack(syncId, playerInventory, itemStack, container);
-                                case LIGHT_GRAY -> BackpackMenu.copperLightGrayBackpack(syncId, playerInventory, itemStack, container);
-                                case GRAY -> BackpackMenu.copperGrayBackpack(syncId, playerInventory, itemStack, container);
-                                case BLACK -> BackpackMenu.copperBlackBackpack(syncId, playerInventory, itemStack, container);
-                                case BROWN -> BackpackMenu.copperBrownBackpack(syncId, playerInventory, itemStack, container);
-                                case RED -> BackpackMenu.copperRedBackpack(syncId, playerInventory, itemStack, container);
-                                case ORANGE -> BackpackMenu.copperOrangeBackpack(syncId, playerInventory, itemStack, container);
-                                case YELLOW -> BackpackMenu.copperYellowBackpack(syncId, playerInventory, itemStack, container);
-                                case LIME -> BackpackMenu.copperLimeBackpack(syncId, playerInventory, itemStack, container);
-                                case GREEN -> BackpackMenu.copperGreenBackpack(syncId, playerInventory, itemStack, container);
-                                case CYAN -> BackpackMenu.copperCyanBackpack(syncId, playerInventory, itemStack, container);
-                                case LIGHT_BLUE -> BackpackMenu.copperLightBlueBackpack(syncId, playerInventory, itemStack, container);
-                                case BLUE -> BackpackMenu.copperBlueBackpack(syncId, playerInventory, itemStack, container);
-                                case PURPLE -> BackpackMenu.copperPurpleBackpack(syncId, playerInventory, itemStack, container);
-                                case MAGENTA -> BackpackMenu.copperMagentaBackpack(syncId, playerInventory, itemStack, container);
-                                case PINK -> BackpackMenu.copperPinkBackpack(syncId, playerInventory, itemStack, container);
-                            };
-                        }
-                    }
-                    case IRON -> {
-                        if (dyeColor == null) {
-                            yield BackpackMenu.ironBackpack(syncId, playerInventory, itemStack, container);
-                        } else {
-                            yield switch (dyeColor) {
-                                case WHITE -> BackpackMenu.ironWhiteBackpack(syncId, playerInventory, itemStack, container);
-                                case LIGHT_GRAY -> BackpackMenu.ironLightGrayBackpack(syncId, playerInventory, itemStack, container);
-                                case GRAY -> BackpackMenu.ironGrayBackpack(syncId, playerInventory, itemStack, container);
-                                case BLACK -> BackpackMenu.ironBlackBackpack(syncId, playerInventory, itemStack, container);
-                                case BROWN -> BackpackMenu.ironBrownBackpack(syncId, playerInventory, itemStack, container);
-                                case RED -> BackpackMenu.ironRedBackpack(syncId, playerInventory, itemStack, container);
-                                case ORANGE -> BackpackMenu.ironOrangeBackpack(syncId, playerInventory, itemStack, container);
-                                case YELLOW -> BackpackMenu.ironYellowBackpack(syncId, playerInventory, itemStack, container);
-                                case LIME -> BackpackMenu.ironLimeBackpack(syncId, playerInventory, itemStack, container);
-                                case GREEN -> BackpackMenu.ironGreenBackpack(syncId, playerInventory, itemStack, container);
-                                case CYAN -> BackpackMenu.ironCyanBackpack(syncId, playerInventory, itemStack, container);
-                                case LIGHT_BLUE -> BackpackMenu.ironLightBlueBackpack(syncId, playerInventory, itemStack, container);
-                                case BLUE -> BackpackMenu.ironBlueBackpack(syncId, playerInventory, itemStack, container);
-                                case PURPLE -> BackpackMenu.ironPurpleBackpack(syncId, playerInventory, itemStack, container);
-                                case MAGENTA -> BackpackMenu.ironMagentaBackpack(syncId, playerInventory, itemStack, container);
-                                case PINK -> BackpackMenu.ironPinkBackpack(syncId, playerInventory, itemStack, container);
-                            };
-                        }
-                    }
-                    case GOLD -> {
-                        if (dyeColor == null) {
-                            yield BackpackMenu.goldenBackpack(syncId, playerInventory, itemStack, container);
-                        } else {
-                            yield switch (dyeColor) {
-                                case WHITE -> BackpackMenu.goldenWhiteBackpack(syncId, playerInventory, itemStack, container);
-                                case LIGHT_GRAY -> BackpackMenu.goldenLightGrayBackpack(syncId, playerInventory, itemStack, container);
-                                case GRAY -> BackpackMenu.goldenGrayBackpack(syncId, playerInventory, itemStack, container);
-                                case BLACK -> BackpackMenu.goldenBlackBackpack(syncId, playerInventory, itemStack, container);
-                                case BROWN -> BackpackMenu.goldenBrownBackpack(syncId, playerInventory, itemStack, container);
-                                case RED -> BackpackMenu.goldenRedBackpack(syncId, playerInventory, itemStack, container);
-                                case ORANGE -> BackpackMenu.goldenOrangeBackpack(syncId, playerInventory, itemStack, container);
-                                case YELLOW -> BackpackMenu.goldenYellowBackpack(syncId, playerInventory, itemStack, container);
-                                case LIME -> BackpackMenu.goldenLimeBackpack(syncId, playerInventory, itemStack, container);
-                                case GREEN -> BackpackMenu.goldenGreenBackpack(syncId, playerInventory, itemStack, container);
-                                case CYAN -> BackpackMenu.goldenCyanBackpack(syncId, playerInventory, itemStack, container);
-                                case LIGHT_BLUE -> BackpackMenu.goldenLightBlueBackpack(syncId, playerInventory, itemStack, container);
-                                case BLUE -> BackpackMenu.goldenBlueBackpack(syncId, playerInventory, itemStack, container);
-                                case PURPLE -> BackpackMenu.goldenPurpleBackpack(syncId, playerInventory, itemStack, container);
-                                case MAGENTA -> BackpackMenu.goldenMagentaBackpack(syncId, playerInventory, itemStack, container);
-                                case PINK -> BackpackMenu.goldenPinkBackpack(syncId, playerInventory, itemStack, container);
-                            };
-                        }
-                    }
-                    case DIAMOND -> {
-                        if (dyeColor == null) {
-                            yield BackpackMenu.diamondBackpack(syncId, playerInventory, itemStack, container);
-                        } else {
-                            yield switch (dyeColor) {
-                                case WHITE -> BackpackMenu.diamondWhiteBackpack(syncId, playerInventory, itemStack, container);
-                                case LIGHT_GRAY -> BackpackMenu.diamondLightGrayBackpack(syncId, playerInventory, itemStack, container);
-                                case GRAY -> BackpackMenu.diamondGrayBackpack(syncId, playerInventory, itemStack, container);
-                                case BLACK -> BackpackMenu.diamondBlackBackpack(syncId, playerInventory, itemStack, container);
-                                case BROWN -> BackpackMenu.diamondBrownBackpack(syncId, playerInventory, itemStack, container);
-                                case RED -> BackpackMenu.diamondRedBackpack(syncId, playerInventory, itemStack, container);
-                                case ORANGE -> BackpackMenu.diamondOrangeBackpack(syncId, playerInventory, itemStack, container);
-                                case YELLOW -> BackpackMenu.diamondYellowBackpack(syncId, playerInventory, itemStack, container);
-                                case LIME -> BackpackMenu.diamondLimeBackpack(syncId, playerInventory, itemStack, container);
-                                case GREEN -> BackpackMenu.diamondGreenBackpack(syncId, playerInventory, itemStack, container);
-                                case CYAN -> BackpackMenu.diamondCyanBackpack(syncId, playerInventory, itemStack, container);
-                                case LIGHT_BLUE -> BackpackMenu.diamondLightBlueBackpack(syncId, playerInventory, itemStack, container);
-                                case BLUE -> BackpackMenu.diamondBlueBackpack(syncId, playerInventory, itemStack, container);
-                                case PURPLE -> BackpackMenu.diamondPurpleBackpack(syncId, playerInventory, itemStack, container);
-                                case MAGENTA -> BackpackMenu.diamondMagentaBackpack(syncId, playerInventory, itemStack, container);
-                                case PINK -> BackpackMenu.diamondPinkBackpack(syncId, playerInventory, itemStack, container);
-                            };
-                        }
-                    }
-                    case NETHERITE -> {
-                        if (dyeColor == null) {
-                            yield BackpackMenu.netheriteBackpack(syncId, playerInventory, itemStack, container);
-                        } else {
-                            yield switch (dyeColor) {
-                                case WHITE -> BackpackMenu.netheriteWhiteBackpack(syncId, playerInventory, itemStack, container);
-                                case LIGHT_GRAY -> BackpackMenu.netheriteLightGrayBackpack(syncId, playerInventory, itemStack, container);
-                                case GRAY -> BackpackMenu.netheriteGrayBackpack(syncId, playerInventory, itemStack, container);
-                                case BLACK -> BackpackMenu.netheriteBlackBackpack(syncId, playerInventory, itemStack, container);
-                                case BROWN -> BackpackMenu.netheriteBrownBackpack(syncId, playerInventory, itemStack, container);
-                                case RED -> BackpackMenu.netheriteRedBackpack(syncId, playerInventory, itemStack, container);
-                                case ORANGE -> BackpackMenu.netheriteOrangeBackpack(syncId, playerInventory, itemStack, container);
-                                case YELLOW -> BackpackMenu.netheriteYellowBackpack(syncId, playerInventory, itemStack, container);
-                                case LIME -> BackpackMenu.netheriteLimeBackpack(syncId, playerInventory, itemStack, container);
-                                case GREEN -> BackpackMenu.netheriteGreenBackpack(syncId, playerInventory, itemStack, container);
-                                case CYAN -> BackpackMenu.netheriteCyanBackpack(syncId, playerInventory, itemStack, container);
-                                case LIGHT_BLUE -> BackpackMenu.netheriteLightBlueBackpack(syncId, playerInventory, itemStack, container);
-                                case BLUE -> BackpackMenu.netheriteBlueBackpack(syncId, playerInventory, itemStack, container);
-                                case PURPLE -> BackpackMenu.netheritePurpleBackpack(syncId, playerInventory, itemStack, container);
-                                case MAGENTA -> BackpackMenu.netheriteMagentaBackpack(syncId, playerInventory, itemStack, container);
-                                case PINK -> BackpackMenu.netheritePinkBackpack(syncId, playerInventory, itemStack, container);
-                            };
-                        }
-                    }
+                    case STRING -> BackpackMenu.defaultBackpack(syncId, playerInventory, itemStack, container);
+                    case COPPER -> BackpackMenu.copperBackpack(syncId, playerInventory, itemStack, container);
+                    case IRON -> BackpackMenu.ironBackpack(syncId, playerInventory, itemStack, container);
+                    case GOLD -> BackpackMenu.goldenBackpack(syncId, playerInventory, itemStack, container);
+                    case DIAMOND -> BackpackMenu.diamondBackpack(syncId, playerInventory, itemStack, container);
+                    case NETHERITE -> BackpackMenu.netheriteBackpack(syncId, playerInventory, itemStack, container);
                 },
                 TITLE
         );
@@ -263,8 +142,7 @@ public class BackpackItem extends Item {
     }
 
     private SimpleContainer getContainer(ItemContainerContents itemContainerContents) {
-        var slotCountPerRow = 9;
-        var container = new SimpleContainer(slotCountPerRow * getRowCount());
+        var container = new SimpleContainer(SLOTS_PER_ROW * backpackMaterial.getRows());
         var items = itemContainerContents.stream().toList();
 
         for (int i = 0; i < items.size(); i++) {
@@ -309,17 +187,6 @@ public class BackpackItem extends Item {
     private void broadcastChangesOnContainerMenu(Player player) {
         AbstractContainerMenu abstractContainerMenu = player.containerMenu;
         abstractContainerMenu.slotsChanged(player.getInventory());
-    }
-
-    private int getRowCount() {
-        return switch (backpackMaterial) {
-            case STRING -> 1;
-            case COPPER -> 2;
-            case IRON -> 3;
-            case GOLD -> 4;
-            case DIAMOND -> 5;
-            case NETHERITE -> 6;
-        };
     }
 
     public static Item getByColorAndBackpackMaterial(DyeColor color, BackpackMaterial backpackMaterial) {

@@ -46,8 +46,8 @@ public abstract class InventoryMenuMixin extends AbstractContainerMenu {
     }
 
     @Inject(method = "quickMoveStack", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;getEquipmentSlotForItem(Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/entity/EquipmentSlot;", shift = At.Shift.AFTER), cancellable = true)
-    private void quickMoveBackpack(Player player, int index, CallbackInfoReturnable<ItemStack> cir, @Local(ordinal = 1) ItemStack itemStack, @Local(ordinal = 0) ItemStack copyOfItemStack) {
-        if (index != BACKPACK_SLOT && itemStack.getItem() instanceof BackpackItem) {
+    private void quickMoveBackpack(Player player, int index, CallbackInfoReturnable<ItemStack> cir, @Local Slot slot, @Local(ordinal = 1) ItemStack itemStack, @Local(ordinal = 0) ItemStack copyOfItemStack) {
+         if (index != 0 && index != BACKPACK_SLOT && itemStack.getItem() instanceof BackpackItem) {
             if (this.moveItemStackTo(itemStack, BACKPACK_SLOT, BACKPACK_SLOT + 1, false)) {
                 cir.setReturnValue(copyOfItemStack);
             }
