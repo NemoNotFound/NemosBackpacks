@@ -1,5 +1,6 @@
 package com.nemonotfound.nemos.backpacks.world.item;
 
+import com.nemonotfound.nemos.backpacks.core.component.BackpacksDataComponents;
 import com.nemonotfound.nemos.backpacks.network.protocol.game.BackpackOpenedPacket;
 import com.nemonotfound.nemos.backpacks.tags.BackpackItemTags;
 import com.nemonotfound.nemos.backpacks.world.inventory.BackpackMenu;
@@ -44,10 +45,10 @@ public class BackpackItem extends Item {
         this.dyeColor = dyeColor;
     }
 
-    //TODO: Set dataComponent to check if used
     @Override
     public @NotNull InteractionResult use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand interactionHand) {
         var backpackItemStack = getBackpackItemStack(player, interactionHand);
+        backpackItemStack.set(BackpacksDataComponents.IS_BACKPACK_OPEN.get(), true);
 
         if (level instanceof ServerLevel) {
             Dispatcher.sendToClient(new BackpackOpenedPacket(backpackItemStack), (ServerPlayer) player);

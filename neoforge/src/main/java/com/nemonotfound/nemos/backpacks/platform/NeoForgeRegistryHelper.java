@@ -9,6 +9,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.MenuAccess;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -26,6 +27,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import static com.nemonotfound.nemos.backpacks.NeoForgeNemosBackpacks.DATA_COMPONENT_TYPE;
 import static com.nemonotfound.nemos.backpacks.NeoForgeNemosBackpacks.MENU;
 
 public class NeoForgeRegistryHelper implements IRegistryHelper {
@@ -88,6 +90,11 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
     @Override
     public <M extends AbstractContainerMenu, U extends Screen & MenuAccess<M>> void registerMenuScreen(Supplier<MenuType<M>> menuTypeSupplier, MenuScreens.ScreenConstructor<M, U> screenConstructor) {
         // Doing nothing, since NeoForge wants the screen to be registered through the RegisterMenuScreensEvent
+    }
+
+    @Override
+    public <T> Supplier<DataComponentType<T>> registerDataComponent(String id, DataComponentType<T> dataComponentType) {
+        return DATA_COMPONENT_TYPE.register(id, () -> dataComponentType);
     }
 
     private static <T> ResourceKey<T> createResourceKey(ResourceKey<Registry<T>> registryResourceKey, String id) {

@@ -1,5 +1,6 @@
 package com.nemonotfound.nemos.backpacks.world.inventory;
 
+import com.nemonotfound.nemos.backpacks.core.component.BackpacksDataComponents;
 import com.nemonotfound.nemos.backpacks.helper.Backpacker;
 import com.nemonotfound.nemos.backpacks.world.item.BackpackItem;
 import com.nemonotfound.nemos.backpacks.world.item.BackpackMaterial;
@@ -142,7 +143,7 @@ public class BackpackMenu extends AbstractContainerMenu {
 
     @Override
     public void clicked(int slotId, int button, @NotNull ClickType clickType, @NotNull Player player) {
-        if (isItemBackpackInUse(slotId, clickType, button)) {
+        if (clickType.equals(ClickType.CLONE) || isItemBackpackInUse(slotId, clickType, button)) {
             return;
         }
 
@@ -153,14 +154,29 @@ public class BackpackMenu extends AbstractContainerMenu {
 
     private boolean isItemBackpackInUse(int slotId, ClickType clickType, int button) {
         var containerSize = container.getContainerSize();
-        var playerInventoryContainerSize = 27;
-        var hotbarSize = 9;
-        var hotbarStartIndex = containerSize + playerInventoryContainerSize;
-        var hotbarEndIndex = hotbarStartIndex + hotbarSize - 1;
-        var isSlotIdWithinHotbarBounds = slotId >= hotbarStartIndex && slotId <= hotbarEndIndex;
 
-        return (isSlotIdWithinHotbarBounds && playerInventory.getItem(slotId - containerSize - playerInventoryContainerSize) == itemStack) ||
-                (slotId >= 9 && clickType.equals(ClickType.SWAP) && playerInventory.getItem(button) == itemStack);
+        if (slotId < containerSize) {
+            return false;
+        }
+
+        var inventoryContainerSize = 27;
+        var hotbarStartIndex = containerSize + inventoryContainerSize;
+        var hotbarEndIndex = hotbarStartIndex + SLOTS_PER_ROW - 1;
+        var isSlotIdWithinHotbarBounds = slotId >= hotbarStartIndex && slotId <= hotbarEndIndex;
+        var inventorySlotId = isSlotIdWithinHotbarBounds ? slotId - hotbarStartIndex : slotId - containerSize + SLOTS_PER_ROW;
+        var item = playerInventory.getItem(inventorySlotId);
+
+        if (clickType.equals(ClickType.SWAP)) {
+            var itemToSwap = playerInventory.getItem(button);
+
+            return isBackpackOpen(itemToSwap) || isBackpackOpen(item);
+        }
+
+        return isBackpackOpen(item);
+    }
+
+    private boolean isBackpackOpen(ItemStack itemStack) {
+        return Boolean.TRUE.equals(itemStack.getOrDefault(BackpacksDataComponents.IS_BACKPACK_OPEN.get(), false));
     }
 
     @Override
@@ -168,6 +184,7 @@ public class BackpackMenu extends AbstractContainerMenu {
         super.removed(player);
         storeBackpackItems();
         this.container.stopOpen(player);
+        itemStack.set(BackpacksDataComponents.IS_BACKPACK_OPEN.get(), false);
     }
 
     private void storeBackpackItems() {

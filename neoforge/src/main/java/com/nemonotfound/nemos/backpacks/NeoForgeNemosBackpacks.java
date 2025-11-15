@@ -1,6 +1,7 @@
 package com.nemonotfound.nemos.backpacks;
 
 
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
@@ -24,6 +25,7 @@ public class NeoForgeNemosBackpacks {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MOD_ID);
     public static final DeferredRegister<Attribute> ATTRIBUTE = DeferredRegister.create(BuiltInRegistries.ATTRIBUTE, MOD_ID);
     public static final DeferredRegister<MenuType<?>> MENU = DeferredRegister.create(BuiltInRegistries.MENU, MOD_ID);
+    public static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPE = DeferredRegister.create(BuiltInRegistries.DATA_COMPONENT_TYPE, MOD_ID);
 
     public NeoForgeNemosBackpacks(IEventBus eventBus) {
         Common.init();
@@ -34,5 +36,6 @@ public class NeoForgeNemosBackpacks {
         CREATIVE_TABS.register(eventBus);
         ATTRIBUTE.register(eventBus);
         MENU.register(eventBus);
+        DATA_COMPONENT_TYPE.register(eventBus);
     }
 }
