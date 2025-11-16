@@ -1,4 +1,4 @@
-# Changelog v1.2.4
+# Changelog v1.2.5
 
 ## Fixes
-- Fixed visual bug and possible issues with item storage
+- Fixed a crash that occurred when opening a backpack with certain item types (e.g. enchanted book)
