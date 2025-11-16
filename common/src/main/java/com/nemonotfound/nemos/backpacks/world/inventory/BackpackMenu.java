@@ -143,7 +143,7 @@ public class BackpackMenu extends AbstractContainerMenu {
 
     @Override
     public void clicked(int slotId, int button, @NotNull ClickType clickType, @NotNull Player player) {
-        if (clickType.equals(ClickType.CLONE) || isItemBackpackInUse(slotId, clickType, button)) {
+        if (!clickType.equals(ClickType.CLONE) && isItemBackpackInUse(slotId, clickType, button)) {
             return;
         }
 
