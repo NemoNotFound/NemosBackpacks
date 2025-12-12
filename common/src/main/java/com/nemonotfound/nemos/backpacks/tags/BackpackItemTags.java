@@ -1,7 +1,7 @@
 package com.nemonotfound.nemos.backpacks.tags;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
@@ -19,6 +19,6 @@ public class BackpackItemTags {
     public static final TagKey<Item> COPPER_TOOL_MATERIALS = create("copper_tool_materials");
 
     private static TagKey<Item> create(String id) {
-        return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(MOD_ID, id));
+        return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MOD_ID, id));
     }
 }

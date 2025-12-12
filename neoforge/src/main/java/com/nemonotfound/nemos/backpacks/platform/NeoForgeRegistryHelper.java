@@ -12,7 +12,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -54,8 +54,8 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
 
     @Override
     public <T extends Entity> Supplier<EntityType<T>> registerEntity(String id, EntityType.Builder<T> entityTypeBuilder) {
-        var resourceLocation = ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, id);
-        var resourceKey = ResourceKey.create(Registries.ENTITY_TYPE, resourceLocation);
+        var identifier = Identifier.fromNamespaceAndPath(Constants.MOD_ID, id);
+        var resourceKey = ResourceKey.create(Registries.ENTITY_TYPE, identifier);
 
         return NeoForgeNemosBackpacks.ENTITIES.register(id, () -> entityTypeBuilder.build(resourceKey));
     }
@@ -98,6 +98,6 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
     }
 
     private static <T> ResourceKey<T> createResourceKey(ResourceKey<Registry<T>> registryResourceKey, String id) {
-        return ResourceKey.create(registryResourceKey, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, id));
+        return ResourceKey.create(registryResourceKey, Identifier.fromNamespaceAndPath(Constants.MOD_ID, id));
     }
 }

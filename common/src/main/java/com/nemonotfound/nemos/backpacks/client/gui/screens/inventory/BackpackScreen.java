@@ -8,7 +8,7 @@ import net.minecraft.client.input.KeyEvent;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.DyeColor;
 import org.jetbrains.annotations.NotNull;
@@ -16,10 +16,10 @@ import org.jetbrains.annotations.NotNull;
 import static com.nemonotfound.nemos.backpacks.Constants.MOD_ID;
 import static com.nemonotfound.nemos.backpacks.client.BackpackKeyMappings.INTERACT_BACKPACK;
 
-public class BackpackScreen extends AbstractContainerScreen<BackpackMenu> {
+public class BackpackScreen extends AbstractContainerScreen<@NotNull BackpackMenu> {
 
-    private final ResourceLocation backpackBackground;
-    private final ResourceLocation backpackOverlay;
+    private final Identifier backpackBackground;
+    private final Identifier backpackOverlay;
     private final int containerRows;
 
     public BackpackScreen(BackpackMenu menu, Inventory playerInventory, Component title) {
@@ -70,17 +70,17 @@ public class BackpackScreen extends AbstractContainerScreen<BackpackMenu> {
         return super.mouseClicked(event, isDoubleClick);
     }
 
-    private static ResourceLocation getBackgroundTextureLocation(DyeColor dyeColor) {
+    private static Identifier getBackgroundTextureLocation(DyeColor dyeColor) {
         var dyeColorString = "default";
 
         if (dyeColor != null) {
             dyeColorString = dyeColor.getName();
         }
 
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, String.format("textures/gui/container/backpack/background/%s_backpack_background.png", dyeColorString));
+        return Identifier.fromNamespaceAndPath(MOD_ID, String.format("textures/gui/container/backpack/background/%s_backpack_background.png", dyeColorString));
     }
 
-    private static ResourceLocation getOverlayTextureLocation(BackpackMaterial backpackMaterial) {
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, String.format("textures/gui/container/backpack/overlay/%s_backpack_overlay.png", backpackMaterial.getName()));
+    private static Identifier getOverlayTextureLocation(BackpackMaterial backpackMaterial) {
+        return Identifier.fromNamespaceAndPath(MOD_ID, String.format("textures/gui/container/backpack/overlay/%s_backpack_overlay.png", backpackMaterial.getName()));
     }
 }

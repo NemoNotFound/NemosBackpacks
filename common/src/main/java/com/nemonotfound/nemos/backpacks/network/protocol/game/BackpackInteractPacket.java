@@ -6,14 +6,14 @@ import commonnetwork.networking.data.Side;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import static com.nemonotfound.nemos.backpacks.Constants.MOD_ID;
 import static com.nemonotfound.nemos.backpacks.Constants.BACKPACK_SLOT;
 
 public class BackpackInteractPacket {
 
-    public static final ResourceLocation CHANNEL = ResourceLocation.fromNamespaceAndPath(MOD_ID, "backpack_interact");
+    public static final Identifier CHANNEL = Identifier.fromNamespaceAndPath(MOD_ID, "backpack_interact");
     public static final StreamCodec<FriendlyByteBuf, BackpackInteractPacket> STREAM_CODEC = StreamCodec.ofMember(BackpackInteractPacket::encode, BackpackInteractPacket::new);
 
     public BackpackInteractPacket() {

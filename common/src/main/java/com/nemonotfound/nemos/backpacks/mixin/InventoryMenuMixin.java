@@ -2,7 +2,7 @@ package com.nemonotfound.nemos.backpacks.mixin;
 
 import com.nemonotfound.nemos.backpacks.world.item.BackpackItem;
 import com.llamalad7.mixinextras.sugar.Local;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -26,7 +26,7 @@ import static com.nemonotfound.nemos.backpacks.Constants.BACKPACK_SLOT;
 public abstract class InventoryMenuMixin extends AbstractContainerMenu {
 
     @Unique
-    private static final ResourceLocation EMPTY_SLOT_BACKPACK = ResourceLocation.fromNamespaceAndPath(MOD_ID, "container/slot/backpack");
+    private static final Identifier EMPTY_SLOT_BACKPACK = Identifier.fromNamespaceAndPath(MOD_ID, "container/slot/backpack");
 
     protected InventoryMenuMixin(@Nullable MenuType<?> menuType, int containerId) {
         super(menuType, containerId);
@@ -39,7 +39,7 @@ public abstract class InventoryMenuMixin extends AbstractContainerMenu {
                 return stack.getItem() instanceof BackpackItem;
             }
 
-            public ResourceLocation getNoItemIcon() {
+            public Identifier getNoItemIcon() {
                 return EMPTY_SLOT_BACKPACK;
             }
         });

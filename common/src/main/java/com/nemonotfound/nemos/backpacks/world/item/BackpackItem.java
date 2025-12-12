@@ -8,7 +8,7 @@ import commonnetwork.api.Dispatcher;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -191,22 +191,22 @@ public class BackpackItem extends Item {
     }
 
     public static Item getByColorAndBackpackMaterial(DyeColor color, BackpackMaterial backpackMaterial) {
-        var resourceLocation = ResourceLocation.fromNamespaceAndPath(MOD_ID, getItemName(color, backpackMaterial));
-        var item = BuiltInRegistries.ITEM.getValue(resourceLocation);
+        var identifier = Identifier.fromNamespaceAndPath(MOD_ID, getItemName(color, backpackMaterial));
+        var item = BuiltInRegistries.ITEM.getValue(identifier);
 
         if (item == Items.AIR) {
-            throw new IllegalArgumentException("Missing item: " + resourceLocation);
+            throw new IllegalArgumentException("Missing item: " + identifier);
         }
 
         return item;
     }
 
     public static Item getByBackpackMaterial(BackpackMaterial backpackMaterial) {
-        var resourceLocation = ResourceLocation.fromNamespaceAndPath(MOD_ID, getItemName(backpackMaterial));
-        var item = BuiltInRegistries.ITEM.getValue(resourceLocation);
+        var identifier = Identifier.fromNamespaceAndPath(MOD_ID, getItemName(backpackMaterial));
+        var item = BuiltInRegistries.ITEM.getValue(identifier);
 
         if (item == Items.AIR) {
-            throw new IllegalArgumentException("Missing item: " + resourceLocation);
+            throw new IllegalArgumentException("Missing item: " + identifier);
         }
 
         return item;

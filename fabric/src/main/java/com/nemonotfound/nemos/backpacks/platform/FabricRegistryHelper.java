@@ -14,7 +14,7 @@ import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -55,8 +55,8 @@ public class FabricRegistryHelper implements IRegistryHelper {
 
     @Override
     public <T extends Entity> Supplier<EntityType<T>> registerEntity(String id, EntityType.Builder<T> entityTypeBuilder) {
-        var resourceLocation = ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, id);
-        var resourceKey = ResourceKey.create(Registries.ENTITY_TYPE, resourceLocation);
+        var identifier = Identifier.fromNamespaceAndPath(Constants.MOD_ID, id);
+        var resourceKey = ResourceKey.create(Registries.ENTITY_TYPE, identifier);
 
         return registerSupplier(BuiltInRegistries.ENTITY_TYPE, id, () -> entityTypeBuilder.build(resourceKey));
     }
@@ -80,14 +80,14 @@ public class FabricRegistryHelper implements IRegistryHelper {
 
     @Override
     public Supplier<Holder<Attribute>> registerAttribute(String id, Attribute attribute) {
-        var attributeReference = Registry.registerForHolder(BuiltInRegistries.ATTRIBUTE, ResourceLocation.fromNamespaceAndPath(MOD_ID, id), attribute);
+        var attributeReference = Registry.registerForHolder(BuiltInRegistries.ATTRIBUTE, Identifier.fromNamespaceAndPath(MOD_ID, id), attribute);
 
         return () -> attributeReference;
     }
 
     @Override
     public <T extends AbstractContainerMenu> Supplier<MenuType<T>> registerMenuType(String id, MenuType.MenuSupplier<T> menuSupplier) {
-        var registeredMenuType = Registry.register(BuiltInRegistries.MENU, ResourceLocation.fromNamespaceAndPath(MOD_ID, id), new MenuType<>(menuSupplier, FeatureFlags.DEFAULT_FLAGS));
+        var registeredMenuType = Registry.register(BuiltInRegistries.MENU, Identifier.fromNamespaceAndPath(MOD_ID, id), new MenuType<>(menuSupplier, FeatureFlags.DEFAULT_FLAGS));
 
         return () -> registeredMenuType;
     }
@@ -99,22 +99,22 @@ public class FabricRegistryHelper implements IRegistryHelper {
 
     @Override
     public <T> Supplier<DataComponentType<T>> registerDataComponent(String id, DataComponentType<T> dataComponentType) {
-        var resourceLocation = ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
-        var registeredDataComponentType = Registry.register(BuiltInRegistries.DATA_COMPONENT_TYPE, resourceLocation, dataComponentType);
+        var identifier = Identifier.fromNamespaceAndPath(MOD_ID, id);
+        var registeredDataComponentType = Registry.register(BuiltInRegistries.DATA_COMPONENT_TYPE, identifier, dataComponentType);
 
         return () -> registeredDataComponentType;
     }
 
     private static <T, R extends Registry<? super T>> Supplier<T> registerSupplier(R registry, String id, Supplier<T> object) {
-        final var resourceLocation = ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
-        final var registeredObject = Registry.register((Registry<T>) registry, resourceLocation, object.get());
+        final var identifier = Identifier.fromNamespaceAndPath(MOD_ID, id);
+        final var registeredObject = Registry.register((Registry<T>) registry, identifier, object.get());
 
         return () -> registeredObject;
     }
 
     private static <T, R extends Registry<T>> Supplier<T> registerSupplierWithResourceKey(R registry, String id, Function<ResourceKey<T>, T> object) {
-        final var resourceLocation = ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
-        final var registeredObject = Registry.register(registry, resourceLocation, object.apply(ResourceKey.create(registry.key(), resourceLocation)));
+        final var identifier = Identifier.fromNamespaceAndPath(MOD_ID, id);
+        final var registeredObject = Registry.register(registry, identifier, object.apply(ResourceKey.create(registry.key(), identifier)));
 
         return () -> registeredObject;
     }

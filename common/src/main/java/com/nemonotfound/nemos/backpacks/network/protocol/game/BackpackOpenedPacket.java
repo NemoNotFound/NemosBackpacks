@@ -8,14 +8,14 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 
 import static com.nemonotfound.nemos.backpacks.Constants.MOD_ID;
 
 public class BackpackOpenedPacket {
 
-    public static final ResourceLocation CHANNEL = ResourceLocation.fromNamespaceAndPath(MOD_ID, "backpack_opened");
+    public static final Identifier CHANNEL = Identifier.fromNamespaceAndPath(MOD_ID, "backpack_opened");
     public static final StreamCodec<FriendlyByteBuf, BackpackOpenedPacket> STREAM_CODEC = StreamCodec.ofMember(BackpackOpenedPacket::encode, BackpackOpenedPacket::new);
     private final ItemStack itemStack;
 

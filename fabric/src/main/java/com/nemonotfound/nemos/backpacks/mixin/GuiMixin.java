@@ -6,7 +6,7 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
@@ -40,7 +40,7 @@ public abstract class GuiMixin {
         }
 
         var backpackLocation = BuiltInRegistries.ITEM.getKey(backpackItemStack.getItem());
-        var textureLocation = ResourceLocation.fromNamespaceAndPath(backpackLocation.getNamespace(), "hud/backpack/" + backpackLocation.getPath());
+        var textureLocation = Identifier.fromNamespaceAndPath(backpackLocation.getNamespace(), "hud/backpack/" + backpackLocation.getPath());
         var x = guiGraphics.guiWidth() / 2 - 5;
         var y = guiGraphics.guiHeight() - 49;
 
