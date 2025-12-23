@@ -17,28 +17,24 @@ With Nemo’s Backpacks you get:
 Backpacks can be upgraded using Upgrade Smithing Templates, which can be found throughout the world.
 Upgrades must be applied step by step – you can’t skip directly to higher tiers!
 
-For more details and upgrade template locations, check out the [wiki](https://wiki.devnemo.com/projects/minecraft-mods/nemos-backpacks/general).
+For more details and upgrade template locations, check out the [wiki](https://wiki.nemonotfound.com/projects/minecraft-mods/nemos-backpacks/general).
 
 ## Downloads
 - [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-backpacks)
 - [Modrinth](https://modrinth.com/mod/nemos-backpacks)
-<br><br>
 
 ## Third-Party Components
 
 - Uses [MultiLoader‑Template (CC0-1.0)](https://github.com/jaredlll08/MultiLoader-Template) for multiple loader support.
 
 ## Join my Discord!
-[![Join my Discord](https://github.com/NemoOnGH/NemoNotFound/blob/master/resources/svg/join_discord_button.svg?raw=true)](https://discord.com/invite/yxs9dga)
-<br><br>
+[![Join my Discord](https://github.com/NemoNotFound/NemoNotFound/blob/master/resources/svg/join_discord_button.svg?raw=true)](https://discord.com/invite/yxs9dga)
 
 ## Support Me
 I love to create mods for Minecraft and wish to live off it one day, so I hope you like what I do. <br>
-Either way feel free to give me your feedback and suggestions, either on my Discord or the [discussions](https://github.com/NemoOnGH/NemosBackpacks/discussions/) :)
-<br><br>
+Either way feel free to give me your feedback and suggestions, either on my Discord or the [discussions](https://github.com/NemoNotFound/NemosBackpacks/discussions/) :)
 
-[![ko-fi donation](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.devnemo.com)
-<br><br>
+[![ko-fi donation](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.nemonotfound.com)
 
 ## Get a Minecraft Server
 Looking for a Minecraft Server? Check out [BisectHosting](https://bisecthosting.com/Nemo404)! <br>
