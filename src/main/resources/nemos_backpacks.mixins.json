@@ -1,0 +1,24 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.nemonotfound.nemos.backpacks.mixin",
+  "refmap": "${mod_id}.refmap.json",
+  "compatibilityLevel": "JAVA_18",
+  "mixins": [
+    "AbstractContainerMenuMixin",
+    "InventoryMenuMixin",
+    "InventoryMixin",
+    "ItemMixin",
+    "ServerGamePacketListenerImplMixin",
+    "SmithingTemplateItemHelperMixin",
+    "SmithingTemplateItemMixin"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixinextras": {
+    "minVersion": "0.5.0"
+  }
+}
+

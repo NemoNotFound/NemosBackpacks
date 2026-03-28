@@ -1,0 +1,42 @@
+{
+	"schemaVersion": 1,
+	"id": "nemos_backpacks",
+	"version": "${version}",
+	"name": "Nemo's Backpacks",
+	"description": "Add colorful backpacks to Minecraft!",
+	"authors": [
+		"Nemo"
+	],
+	"contact": {
+		"homepage": "https://nemonotfound.com/",
+		"sources": "https://github.com/NemoNotFound/NemosBackpacks"
+	},
+	"license": "ARR",
+	"icon": "assets/nemos_backpacks/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.nemonotfound.nemos.backpacks.NemosBackpacks"
+		],
+		"client": [
+			"com.nemonotfound.nemos.backpacks.NemosBackpacksClient"
+		],
+		"fabric-datagen": [
+			"com.nemonotfound.nemos.backpacks.datagen.DataGenerator"
+		]
+	},
+	"mixins": [
+		"nemos_backpacks.mixins.json",
+		{
+			"config": "nemos_backpacks.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=${loader_version}",
+		"minecraft": ">=${minecraft_version}",
+		"java": ">=${java_version}",
+		"fabric-api": "*",
+		"nemos_upgrade_templates": ">=${nemos_upgrade_templates_version}"
+	}
+}

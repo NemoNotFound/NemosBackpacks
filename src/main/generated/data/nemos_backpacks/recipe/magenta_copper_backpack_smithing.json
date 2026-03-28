@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#minecraft:copper_tool_materials",
+  "base": "nemos_backpacks:magenta_backpack",
+  "result": {
+    "id": "nemos_backpacks:magenta_copper_backpack"
+  },
+  "template": "nemos_upgrade_templates:copper_upgrade_smithing_template"
+}
