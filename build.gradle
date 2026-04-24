@@ -133,6 +133,7 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
 	mainFile.addEnvironment("Client", "Server")
 	mainFile.addJavaVersion("Java 25")
 	mainFile.addRequirement("fabric-api")
+	mainFile.addRequirement("nemos-upgrade-templates")
 }
 
 modrinth {
@@ -144,6 +145,7 @@ modrinth {
 	uploadFile.set(tasks.jar)
 	dependencies {
 		required.project("fabric-api")
+		required.project("nemos-upgrade-templates")
 	}
 }
 tasks.modrinth.dependsOn(tasks.jar)
