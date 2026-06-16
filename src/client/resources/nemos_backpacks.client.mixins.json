@@ -10,7 +10,7 @@
     "CreativeModeInventoryScreenMixin",
     "LocalPlayerMixin",
     "MinecraftMixin",
-    "GuiMixin"
+    "HudMixin"
   ],
   "server": [],
   "injectors": {

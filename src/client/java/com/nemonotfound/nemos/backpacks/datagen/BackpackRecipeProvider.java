@@ -62,22 +62,22 @@ public class BackpackRecipeProvider extends FabricRecipeProvider {
                     groupPrefix = groupPrefix + "_";
                 }
 
-                backpackDyeRecipe(ingredient, Items.WHITE_DYE, DyeColor.WHITE, backpackMaterial, groupPrefix);
-                backpackDyeRecipe(ingredient, Items.ORANGE_DYE, DyeColor.ORANGE, backpackMaterial, groupPrefix);
-                backpackDyeRecipe(ingredient, Items.MAGENTA_DYE, DyeColor.MAGENTA, backpackMaterial, groupPrefix);
-                backpackDyeRecipe(ingredient, Items.LIGHT_BLUE_DYE, DyeColor.LIGHT_BLUE, backpackMaterial, groupPrefix);
-                backpackDyeRecipe(ingredient, Items.YELLOW_DYE, DyeColor.YELLOW, backpackMaterial, groupPrefix);
-                backpackDyeRecipe(ingredient, Items.LIME_DYE, DyeColor.LIME, backpackMaterial, groupPrefix);
-                backpackDyeRecipe(ingredient, Items.PINK_DYE, DyeColor.PINK, backpackMaterial, groupPrefix);
-                backpackDyeRecipe(ingredient, Items.GRAY_DYE, DyeColor.GRAY, backpackMaterial, groupPrefix);
-                backpackDyeRecipe(ingredient, Items.LIGHT_GRAY_DYE, DyeColor.LIGHT_GRAY, backpackMaterial, groupPrefix);
-                backpackDyeRecipe(ingredient, Items.CYAN_DYE, DyeColor.CYAN, backpackMaterial, groupPrefix);
-                backpackDyeRecipe(ingredient, Items.PURPLE_DYE, DyeColor.PURPLE, backpackMaterial, groupPrefix);
-                backpackDyeRecipe(ingredient, Items.BLUE_DYE, DyeColor.BLUE, backpackMaterial, groupPrefix);
-                backpackDyeRecipe(ingredient, Items.BROWN_DYE, DyeColor.BROWN, backpackMaterial, groupPrefix);
-                backpackDyeRecipe(ingredient, Items.GREEN_DYE, DyeColor.GREEN, backpackMaterial, groupPrefix);
-                backpackDyeRecipe(ingredient, Items.RED_DYE, DyeColor.RED, backpackMaterial, groupPrefix);
-                backpackDyeRecipe(ingredient, Items.BLACK_DYE, DyeColor.BLACK, backpackMaterial, groupPrefix);
+                backpackDyeRecipe(ingredient, Items.DYE.white(), DyeColor.WHITE, backpackMaterial, groupPrefix);
+                backpackDyeRecipe(ingredient, Items.DYE.orange(), DyeColor.ORANGE, backpackMaterial, groupPrefix);
+                backpackDyeRecipe(ingredient, Items.DYE.magenta(), DyeColor.MAGENTA, backpackMaterial, groupPrefix);
+                backpackDyeRecipe(ingredient, Items.DYE.lightBlue(), DyeColor.LIGHT_BLUE, backpackMaterial, groupPrefix);
+                backpackDyeRecipe(ingredient, Items.DYE.yellow(), DyeColor.YELLOW, backpackMaterial, groupPrefix);
+                backpackDyeRecipe(ingredient, Items.DYE.lime(), DyeColor.LIME, backpackMaterial, groupPrefix);
+                backpackDyeRecipe(ingredient, Items.DYE.pink(), DyeColor.PINK, backpackMaterial, groupPrefix);
+                backpackDyeRecipe(ingredient, Items.DYE.gray(), DyeColor.GRAY, backpackMaterial, groupPrefix);
+                backpackDyeRecipe(ingredient, Items.DYE.lightGray(), DyeColor.LIGHT_GRAY, backpackMaterial, groupPrefix);
+                backpackDyeRecipe(ingredient, Items.DYE.cyan(), DyeColor.CYAN, backpackMaterial, groupPrefix);
+                backpackDyeRecipe(ingredient, Items.DYE.purple(), DyeColor.PURPLE, backpackMaterial, groupPrefix);
+                backpackDyeRecipe(ingredient, Items.DYE.blue(), DyeColor.BLUE, backpackMaterial, groupPrefix);
+                backpackDyeRecipe(ingredient, Items.DYE.brown(), DyeColor.BROWN, backpackMaterial, groupPrefix);
+                backpackDyeRecipe(ingredient, Items.DYE.green(), DyeColor.GREEN, backpackMaterial, groupPrefix);
+                backpackDyeRecipe(ingredient, Items.DYE.red(), DyeColor.RED, backpackMaterial, groupPrefix);
+                backpackDyeRecipe(ingredient, Items.DYE.black(), DyeColor.BLACK, backpackMaterial, groupPrefix);
             }
 
             private void backpackDyeRecipe(Ingredient ingredient, Item dyeItem, DyeColor dyeColor, BackpackMaterial backpackMaterial, String groupPrefix) {

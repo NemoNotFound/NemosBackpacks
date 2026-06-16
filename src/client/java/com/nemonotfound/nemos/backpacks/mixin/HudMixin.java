@@ -2,8 +2,8 @@ package com.nemonotfound.nemos.backpacks.mixin;
 
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.Hud;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -21,8 +21,8 @@ import java.util.Optional;
 
 import static com.nemonotfound.nemos.backpacks.NemosBackpacks.BACKPACK_SLOT;
 
-@Mixin(Gui.class)
-public abstract class GuiMixin {
+@Mixin(Hud.class)
+public abstract class HudMixin {
 
     @Shadow @Nullable protected abstract Player getCameraPlayer();
 

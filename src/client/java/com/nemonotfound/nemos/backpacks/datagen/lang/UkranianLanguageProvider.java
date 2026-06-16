@@ -24,102 +24,136 @@ public class UkranianLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(BackpackItems.GOLDEN_BACKPACK, "Золотий рюкзак");
         translationBuilder.add(BackpackItems.DIAMOND_BACKPACK, "Діамантовий рюкзак");
         translationBuilder.add(BackpackItems.NETHERITE_BACKPACK, "Незеритовий рюкзак");
-        translationBuilder.add(BackpackItems.WHITE_BACKPACK, "Білий рюкзак");
-        translationBuilder.add(BackpackItems.WHITE_COPPER_BACKPACK, "Білий мідний рюкзак");
-        translationBuilder.add(BackpackItems.WHITE_IRON_BACKPACK, "Білий залізний рюкзак");
-        translationBuilder.add(BackpackItems.WHITE_GOLDEN_BACKPACK, "Білий золотий рюкзак");
-        translationBuilder.add(BackpackItems.WHITE_DIAMOND_BACKPACK, "Білий діамантовий рюкзак");
-        translationBuilder.add(BackpackItems.WHITE_NETHERITE_BACKPACK, "Білий незеритовий рюкзак");
-        translationBuilder.add(BackpackItems.LIGHT_GRAY_BACKPACK, "Світло-сірий рюкзак");
-        translationBuilder.add(BackpackItems.LIGHT_GRAY_COPPER_BACKPACK, "Світло-сірий мідний рюкзак");
-        translationBuilder.add(BackpackItems.LIGHT_GRAY_IRON_BACKPACK, "Світло-сірий залізний рюкзак");
-        translationBuilder.add(BackpackItems.LIGHT_GRAY_GOLDEN_BACKPACK, "Світло-сірий золотий рюкзак");
-        translationBuilder.add(BackpackItems.LIGHT_GRAY_DIAMOND_BACKPACK, "Світло-сірий діамантовий рюкзак");
-        translationBuilder.add(BackpackItems.LIGHT_GRAY_NETHERITE_BACKPACK, "Світло-сірий незеритовий рюкзак");
-        translationBuilder.add(BackpackItems.GRAY_BACKPACK, "Сірий рюкзак");
-        translationBuilder.add(BackpackItems.GRAY_COPPER_BACKPACK, "Сірий мідний рюкзак");
-        translationBuilder.add(BackpackItems.GRAY_IRON_BACKPACK, "Сірий залізний рюкзак");
-        translationBuilder.add(BackpackItems.GRAY_GOLDEN_BACKPACK, "Сірий золотий рюкзак");
-        translationBuilder.add(BackpackItems.GRAY_DIAMOND_BACKPACK, "Сірий діамантовий рюкзак");
-        translationBuilder.add(BackpackItems.GRAY_NETHERITE_BACKPACK, "Сірий незеритовий рюкзак");
-        translationBuilder.add(BackpackItems.BLACK_BACKPACK, "Чорний рюкзак");
-        translationBuilder.add(BackpackItems.BLACK_COPPER_BACKPACK, "Чорний мідний рюкзак");
-        translationBuilder.add(BackpackItems.BLACK_IRON_BACKPACK, "Чорний залізний рюкзак");
-        translationBuilder.add(BackpackItems.BLACK_GOLDEN_BACKPACK, "Чорний золотий рюкзак");
-        translationBuilder.add(BackpackItems.BLACK_DIAMOND_BACKPACK, "Чорний діамантовий рюкзак");
-        translationBuilder.add(BackpackItems.BLACK_NETHERITE_BACKPACK, "Чорний незеритовий рюкзак");
-        translationBuilder.add(BackpackItems.BROWN_BACKPACK, "Коричневий рюкзак");
-        translationBuilder.add(BackpackItems.BROWN_COPPER_BACKPACK, "Коричневий мідний рюкзак");
-        translationBuilder.add(BackpackItems.BROWN_IRON_BACKPACK, "Коричневий залізний рюкзак");
-        translationBuilder.add(BackpackItems.BROWN_GOLDEN_BACKPACK, "Коричневий золотий рюкзак");
-        translationBuilder.add(BackpackItems.BROWN_DIAMOND_BACKPACK, "Коричневий діамантовий рюкзак");
-        translationBuilder.add(BackpackItems.BROWN_NETHERITE_BACKPACK, "Коричневий незеритовий рюкзак");
-        translationBuilder.add(BackpackItems.RED_BACKPACK, "Червоний рюкзак");
-        translationBuilder.add(BackpackItems.RED_COPPER_BACKPACK, "Червоний мідний рюкзак");
-        translationBuilder.add(BackpackItems.RED_IRON_BACKPACK, "Червоний залізний рюкзак");
-        translationBuilder.add(BackpackItems.RED_GOLDEN_BACKPACK, "Червоний золотий рюкзак");
-        translationBuilder.add(BackpackItems.RED_DIAMOND_BACKPACK, "Червоний діамантовий рюкзак");
-        translationBuilder.add(BackpackItems.RED_NETHERITE_BACKPACK, "Червоний незеритовий рюкзак");
-        translationBuilder.add(BackpackItems.ORANGE_BACKPACK, "Помаранчевий рюкзак");
-        translationBuilder.add(BackpackItems.ORANGE_COPPER_BACKPACK, "Помаранчевий мідний рюкзак");
-        translationBuilder.add(BackpackItems.ORANGE_IRON_BACKPACK, "Помаранчевий залізний рюкзак");
-        translationBuilder.add(BackpackItems.ORANGE_GOLDEN_BACKPACK, "Помаранчевий золотий рюкзак");
-        translationBuilder.add(BackpackItems.ORANGE_DIAMOND_BACKPACK, "Помаранчевий діамантовий рюкзак");
-        translationBuilder.add(BackpackItems.ORANGE_NETHERITE_BACKPACK, "Помаранчевий незеритовий рюкзак");
-        translationBuilder.add(BackpackItems.YELLOW_BACKPACK, "Жовтий рюкзак");
-        translationBuilder.add(BackpackItems.YELLOW_COPPER_BACKPACK, "Жовтий мідний рюкзак");
-        translationBuilder.add(BackpackItems.YELLOW_IRON_BACKPACK, "Жовтий залізний рюкзак");
-        translationBuilder.add(BackpackItems.YELLOW_GOLDEN_BACKPACK, "Жовтий золотий рюкзак");
-        translationBuilder.add(BackpackItems.YELLOW_DIAMOND_BACKPACK, "Жовтий діамантовий рюкзак");
-        translationBuilder.add(BackpackItems.YELLOW_NETHERITE_BACKPACK, "Жовтий незеритовий рюкзак");
-        translationBuilder.add(BackpackItems.LIME_BACKPACK, "Лаймовий рюкзак");
-        translationBuilder.add(BackpackItems.LIME_COPPER_BACKPACK, "Лаймовий мідний рюкзак");
-        translationBuilder.add(BackpackItems.LIME_IRON_BACKPACK, "Лаймовий залізний рюкзак");
-        translationBuilder.add(BackpackItems.LIME_GOLDEN_BACKPACK, "Лаймовий золотий рюкзак");
-        translationBuilder.add(BackpackItems.LIME_DIAMOND_BACKPACK, "Лаймовий діамантовий рюкзак");
-        translationBuilder.add(BackpackItems.LIME_NETHERITE_BACKPACK, "Лаймовий незеритовий рюкзак");
-        translationBuilder.add(BackpackItems.GREEN_BACKPACK, "Зелений рюкзак");
-        translationBuilder.add(BackpackItems.GREEN_COPPER_BACKPACK, "Зелений мідний рюкзак");
-        translationBuilder.add(BackpackItems.GREEN_IRON_BACKPACK, "Зелений залізний рюкзак");
-        translationBuilder.add(BackpackItems.GREEN_GOLDEN_BACKPACK, "Зелений золотий рюкзак");
-        translationBuilder.add(BackpackItems.GREEN_DIAMOND_BACKPACK, "Зелений діамантовий рюкзак");
-        translationBuilder.add(BackpackItems.GREEN_NETHERITE_BACKPACK, "Зелений незеритовий рюкзак");
-        translationBuilder.add(BackpackItems.CYAN_BACKPACK, "Бірюзовий рюкзак");
-        translationBuilder.add(BackpackItems.CYAN_COPPER_BACKPACK, "Бірюзовий мідний рюкзак");
-        translationBuilder.add(BackpackItems.CYAN_IRON_BACKPACK, "Бірюзовий залізний рюкзак");
-        translationBuilder.add(BackpackItems.CYAN_GOLDEN_BACKPACK, "Бірюзовий золотий рюкзак");
-        translationBuilder.add(BackpackItems.CYAN_DIAMOND_BACKPACK, "Бірюзовий діамантовий рюкзак");
-        translationBuilder.add(BackpackItems.CYAN_NETHERITE_BACKPACK, "Бірюзовий незеритовий рюкзак");
-        translationBuilder.add(BackpackItems.LIGHT_BLUE_BACKPACK, "Блакитний рюкзак");
-        translationBuilder.add(BackpackItems.LIGHT_BLUE_COPPER_BACKPACK, "Блакитний мідний рюкзак");
-        translationBuilder.add(BackpackItems.LIGHT_BLUE_IRON_BACKPACK, "Блакитний залізний рюкзак");
-        translationBuilder.add(BackpackItems.LIGHT_BLUE_GOLDEN_BACKPACK, "Блакитний золотий рюкзак");
-        translationBuilder.add(BackpackItems.LIGHT_BLUE_DIAMOND_BACKPACK, "Блакитний діамантовий рюкзак");
-        translationBuilder.add(BackpackItems.LIGHT_BLUE_NETHERITE_BACKPACK, "Блакитний незеритовий рюкзак");
-        translationBuilder.add(BackpackItems.BLUE_BACKPACK, "Синій рюкзак");
-        translationBuilder.add(BackpackItems.BLUE_COPPER_BACKPACK, "Синій мідний рюкзак");
-        translationBuilder.add(BackpackItems.BLUE_IRON_BACKPACK, "Синій залізний рюкзак");
-        translationBuilder.add(BackpackItems.BLUE_GOLDEN_BACKPACK, "Синій золотий рюкзак");
-        translationBuilder.add(BackpackItems.BLUE_DIAMOND_BACKPACK, "Синій діамантовий рюкзак");
-        translationBuilder.add(BackpackItems.BLUE_NETHERITE_BACKPACK, "Синій незеритовий рюкзак");
-        translationBuilder.add(BackpackItems.PURPLE_BACKPACK, "Фіолетовий рюкзак");
-        translationBuilder.add(BackpackItems.PURPLE_COPPER_BACKPACK, "Фіолетовий мідний рюкзак");
-        translationBuilder.add(BackpackItems.PURPLE_IRON_BACKPACK, "Фіолетовий залізний рюкзак");
-        translationBuilder.add(BackpackItems.PURPLE_GOLDEN_BACKPACK, "Фіолетовий золотий рюкзак");
-        translationBuilder.add(BackpackItems.PURPLE_DIAMOND_BACKPACK, "Фіолетовий діамантовий рюкзак");
-        translationBuilder.add(BackpackItems.PURPLE_NETHERITE_BACKPACK, "Фіолетовий незеритовий рюкзак");
-        translationBuilder.add(BackpackItems.MAGENTA_BACKPACK, "Пурпуровий рюкзак");
-        translationBuilder.add(BackpackItems.MAGENTA_COPPER_BACKPACK, "Пурпуровий мідний рюкзак");
-        translationBuilder.add(BackpackItems.MAGENTA_IRON_BACKPACK, "Пурпуровий залізний рюкзак");
-        translationBuilder.add(BackpackItems.MAGENTA_GOLDEN_BACKPACK, "Пурпуровий золотий рюкзак");
-        translationBuilder.add(BackpackItems.MAGENTA_DIAMOND_BACKPACK, "Пурпуровий діамантовий рюкзак");
-        translationBuilder.add(BackpackItems.MAGENTA_NETHERITE_BACKPACK, "Пурпуровий незеритовий рюкзак");
-        translationBuilder.add(BackpackItems.PINK_BACKPACK, "Рожевий рюкзак");
-        translationBuilder.add(BackpackItems.PINK_COPPER_BACKPACK, "Рожевий мідний рюкзак");
-        translationBuilder.add(BackpackItems.PINK_IRON_BACKPACK, "Рожевий залізний рюкзак");
-        translationBuilder.add(BackpackItems.PINK_GOLDEN_BACKPACK, "Рожевий золотий рюкзак");
-        translationBuilder.add(BackpackItems.PINK_DIAMOND_BACKPACK, "Рожевий діамантовий рюкзак");
-        translationBuilder.add(BackpackItems.PINK_NETHERITE_BACKPACK, "Рожевий незеритовий рюкзак");
+
+        // WHITE
+        translationBuilder.add(BackpackItems.DYED_BACKPACK.white(), "Білий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_COPPER_BACKPACK.white(), "Білий мідний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_IRON_BACKPACK.white(), "Білий залізний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_GOLDEN_BACKPACK.white(), "Білий золотий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_DIAMOND_BACKPACK.white(), "Білий діамантовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_NETHERITE_BACKPACK.white(), "Білий незеритовий рюкзак");
+
+        // LIGHT_GRAY
+        translationBuilder.add(BackpackItems.DYED_BACKPACK.lightGray(), "Світло-сірий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_COPPER_BACKPACK.lightGray(), "Світло-сірий мідний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_IRON_BACKPACK.lightGray(), "Світло-сірий залізний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_GOLDEN_BACKPACK.lightGray(), "Світло-сірий золотий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_DIAMOND_BACKPACK.lightGray(), "Світло-сірий діамантовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_NETHERITE_BACKPACK.lightGray(), "Світло-сірий незеритовий рюкзак");
+
+        // GRAY
+        translationBuilder.add(BackpackItems.DYED_BACKPACK.gray(), "Сірий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_COPPER_BACKPACK.gray(), "Сірий мідний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_IRON_BACKPACK.gray(), "Сірий залізний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_GOLDEN_BACKPACK.gray(), "Сірий золотий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_DIAMOND_BACKPACK.gray(), "Сірий діамантовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_NETHERITE_BACKPACK.gray(), "Сірий незеритовий рюкзак");
+
+        // BLACK
+        translationBuilder.add(BackpackItems.DYED_BACKPACK.black(), "Чорний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_COPPER_BACKPACK.black(), "Чорний мідний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_IRON_BACKPACK.black(), "Чорний залізний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_GOLDEN_BACKPACK.black(), "Чорний золотий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_DIAMOND_BACKPACK.black(), "Чорний діамантовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_NETHERITE_BACKPACK.black(), "Чорний незеритовий рюкзак");
+
+        // BROWN
+        translationBuilder.add(BackpackItems.DYED_BACKPACK.brown(), "Коричневий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_COPPER_BACKPACK.brown(), "Коричневий мідний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_IRON_BACKPACK.brown(), "Коричневий залізний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_GOLDEN_BACKPACK.brown(), "Коричневий золотий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_DIAMOND_BACKPACK.brown(), "Коричневий діамантовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_NETHERITE_BACKPACK.brown(), "Коричневий незеритовий рюкзак");
+
+        // RED
+        translationBuilder.add(BackpackItems.DYED_BACKPACK.red(), "Червоний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_COPPER_BACKPACK.red(), "Червоний мідний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_IRON_BACKPACK.red(), "Червоний залізний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_GOLDEN_BACKPACK.red(), "Червоний золотий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_DIAMOND_BACKPACK.red(), "Червоний діамантовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_NETHERITE_BACKPACK.red(), "Червоний незеритовий рюкзак");
+
+        // ORANGE
+        translationBuilder.add(BackpackItems.DYED_BACKPACK.orange(), "Помаранчевий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_COPPER_BACKPACK.orange(), "Помаранчевий мідний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_IRON_BACKPACK.orange(), "Помаранчевий залізний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_GOLDEN_BACKPACK.orange(), "Помаранчевий золотий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_DIAMOND_BACKPACK.orange(), "Помаранчевий діамантовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_NETHERITE_BACKPACK.orange(), "Помаранчевий незеритовий рюкзак");
+
+        // YELLOW
+        translationBuilder.add(BackpackItems.DYED_BACKPACK.yellow(), "Жовтий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_COPPER_BACKPACK.yellow(), "Жовтий мідний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_IRON_BACKPACK.yellow(), "Жовтий залізний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_GOLDEN_BACKPACK.yellow(), "Жовтий золотий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_DIAMOND_BACKPACK.yellow(), "Жовтий діамантовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_NETHERITE_BACKPACK.yellow(), "Жовтий незеритовий рюкзак");
+
+
+        // LIME
+        translationBuilder.add(BackpackItems.DYED_BACKPACK.lime(), "Лаймовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_COPPER_BACKPACK.lime(), "Лаймовий мідний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_IRON_BACKPACK.lime(), "Лаймовий залізний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_GOLDEN_BACKPACK.lime(), "Лаймовий золотий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_DIAMOND_BACKPACK.lime(), "Лаймовий діамантовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_NETHERITE_BACKPACK.lime(), "Лаймовий незеритовий рюкзак");
+
+        // GREEN
+        translationBuilder.add(BackpackItems.DYED_BACKPACK.green(), "Зелений рюкзак");
+        translationBuilder.add(BackpackItems.DYED_COPPER_BACKPACK.green(), "Зелений мідний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_IRON_BACKPACK.green(), "Зелений залізний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_GOLDEN_BACKPACK.green(), "Зелений золотий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_DIAMOND_BACKPACK.green(), "Зелений діамантовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_NETHERITE_BACKPACK.green(), "Зелений незеритовий рюкзак");
+
+        // CYAN
+        translationBuilder.add(BackpackItems.DYED_BACKPACK.cyan(), "Бірюзовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_COPPER_BACKPACK.cyan(), "Бірюзовий мідний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_IRON_BACKPACK.cyan(), "Бірюзовий залізний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_GOLDEN_BACKPACK.cyan(), "Бірюзовий золотий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_DIAMOND_BACKPACK.cyan(), "Бірюзовий діамантовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_NETHERITE_BACKPACK.cyan(), "Бірюзовий незеритовий рюкзак");
+
+        // LIGHT_BLUE
+        translationBuilder.add(BackpackItems.DYED_BACKPACK.lightBlue(), "Блакитний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_COPPER_BACKPACK.lightBlue(), "Блакитний мідний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_IRON_BACKPACK.lightBlue(), "Блакитний залізний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_GOLDEN_BACKPACK.lightBlue(), "Блакитний золотий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_DIAMOND_BACKPACK.lightBlue(), "Блакитний діамантовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_NETHERITE_BACKPACK.lightBlue(), "Блакитний незеритовий рюкзак");
+
+        // BLUE
+        translationBuilder.add(BackpackItems.DYED_BACKPACK.blue(), "Синій рюкзак");
+        translationBuilder.add(BackpackItems.DYED_COPPER_BACKPACK.blue(), "Синій мідний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_IRON_BACKPACK.blue(), "Синій залізний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_GOLDEN_BACKPACK.blue(), "Синій золотий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_DIAMOND_BACKPACK.blue(), "Синій діамантовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_NETHERITE_BACKPACK.blue(), "Синій незеритовий рюкзак");
+
+        // PURPLE
+        translationBuilder.add(BackpackItems.DYED_BACKPACK.purple(), "Фіолетовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_COPPER_BACKPACK.purple(), "Фіолетовий мідний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_IRON_BACKPACK.purple(), "Фіолетовий залізний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_GOLDEN_BACKPACK.purple(), "Фіолетовий золотий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_DIAMOND_BACKPACK.purple(), "Фіолетовий діамантовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_NETHERITE_BACKPACK.purple(), "Фіолетовий незеритовий рюкзак");
+
+
+        // MAGENTA
+        translationBuilder.add(BackpackItems.DYED_BACKPACK.magenta(), "Пурпуровий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_COPPER_BACKPACK.magenta(), "Пурпуровий мідний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_IRON_BACKPACK.magenta(), "Пурпуровий залізний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_GOLDEN_BACKPACK.magenta(), "Пурпуровий золотий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_DIAMOND_BACKPACK.magenta(), "Пурпуровий діамантовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_NETHERITE_BACKPACK.magenta(), "Пурпуровий незеритовий рюкзак");
+
+        // PINK
+        translationBuilder.add(BackpackItems.DYED_BACKPACK.pink(), "Рожевий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_COPPER_BACKPACK.pink(), "Рожевий мідний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_IRON_BACKPACK.pink(), "Рожевий залізний рюкзак");
+        translationBuilder.add(BackpackItems.DYED_GOLDEN_BACKPACK.pink(), "Рожевий золотий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_DIAMOND_BACKPACK.pink(), "Рожевий діамантовий рюкзак");
+        translationBuilder.add(BackpackItems.DYED_NETHERITE_BACKPACK.pink(), "Рожевий незеритовий рюкзак");
 
         translationBuilder.add("itemGroup." + MOD_ID, "Nemo's Backpacks");
         translationBuilder.add(MOD_ID + ".container.backpack", "Рюкзак");
