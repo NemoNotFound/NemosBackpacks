@@ -21,6 +21,9 @@
 		"client": [
 			"com.nemonotfound.nemos.backpacks.NemosBackpacksClient"
 		],
+		"modmenu": [
+			"com.nemonotfound.nemos.backpacks.client.config.ModMenuIntegration"
+		],
 		"fabric-datagen": [
 			"com.nemonotfound.nemos.backpacks.datagen.DataGenerator"
 		]
@@ -38,5 +41,9 @@
 		"java": ">=${java_version}",
 		"fabric-api": "*",
 		"nemos_upgrade_templates": ">=${nemos_upgrade_templates_version}"
+	},
+	"suggests": {
+		"modmenu": "*",
+		"yet_another_config_lib_v3": ">=${yacl_version}"
 	}
 }

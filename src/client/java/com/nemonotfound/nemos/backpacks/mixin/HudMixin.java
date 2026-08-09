@@ -1,5 +1,6 @@
 package com.nemonotfound.nemos.backpacks.mixin;
 
+import com.nemonotfound.nemos.backpacks.client.config.BackpacksConfig;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -24,15 +25,23 @@ import static com.nemonotfound.nemos.backpacks.NemosBackpacks.BACKPACK_SLOT;
 @Mixin(Hud.class)
 public abstract class HudMixin {
 
-    @Shadow @Nullable protected abstract Player getCameraPlayer();
+    @Shadow
+    @Nullable
+    protected abstract Player getCameraPlayer();
 
-    @Shadow @Final private Minecraft minecraft;
+    @Shadow
+    @Final
+    private Minecraft minecraft;
 
     @Inject(method = "extractHotbarAndDecorations", at = @At("HEAD"))
     private void renderCarriedBackpack(GuiGraphicsExtractor guiGraphicsExtractor, DeltaTracker deltaTracker, CallbackInfo ci) {
         var player = this.getCameraPlayer();
 
-        if (player == null || !Optional.ofNullable(this.minecraft.gameMode).map(MultiPlayerGameMode::canHurtPlayer).orElse(true)) {
+        if (
+                !BackpacksConfig.get().showBackpackHudIcon
+                        || player == null
+                        || !Optional.ofNullable(this.minecraft.gameMode).map(MultiPlayerGameMode::canHurtPlayer).orElse(true)
+        ) {
             return;
         }
 
