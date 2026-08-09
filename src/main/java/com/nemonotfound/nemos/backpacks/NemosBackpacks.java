@@ -12,8 +12,12 @@ import org.slf4j.LoggerFactory;
 public class NemosBackpacks implements ModInitializer {
 
 	public static final int BACKPACK_SLOT = 46;
+
 	public static final String MOD_ID = "nemos_backpacks";
+	public static final String YACL_MOD_ID = "yet_another_config_lib_v3";
+
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
 
 	@Override
 	public void onInitialize() {

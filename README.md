@@ -19,6 +19,21 @@ Upgrades must be applied step by step – you can’t skip directly to higher ti
 
 For more details and upgrade template locations, check out the [wiki](https://wiki.nemonotfound.com/projects/minecraft-mods/nemos-backpacks/general).
 
+## Configuration
+
+Configs are saved under `config/nemos_backpacks.json`.
+
+- `showBackpackHudIcon`
+  - Toggles the backpack icon above the hotbar
+  - Can be changed manually, requires restart
+
+Optional dependencies for an in-game config screen:
+
+- [YACL](https://modrinth.com/mod/yacl)
+- [Mod Menu](https://modrinth.com/mod/modmenu)
+
+Both mods are completely optional.
+
 ## Downloads
 - [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-backpacks)
 - [Modrinth](https://modrinth.com/mod/nemos-backpacks)

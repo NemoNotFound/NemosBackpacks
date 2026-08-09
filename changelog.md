@@ -1,7 +1,9 @@
-# Changelog v2.0
+# Changelog v2.1
 
-## Breaking Changes
-- Upgrade Templates are now coming from Nemo's Upgrade Templates. Previous templates will vanish
-
-## Changes
-- Removed "Common Networking" dependency
+## Additions
+- Added `showBackpackHudIcon` config
+  - Toggles the backpack icon above the hotbar
+  - Can be changed manually under `config/nemos_backpacks.json`, requires restart
+- Added an optional in-game config screen
+  - Requires YACL and Mod Menu
+  - Both mods are completely optional
