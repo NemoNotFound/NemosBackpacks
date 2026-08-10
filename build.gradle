@@ -53,6 +53,8 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 	implementation "maven.modrinth:nemos-upgrade-templates:${nemos_upgrade_templates_version}"
+	compileOnly "maven.modrinth:yacl:${yacl_version}"
+	compileOnly "maven.modrinth:modmenu:${mod_menu_version}"
 }
 
 processResources {
@@ -61,6 +63,7 @@ processResources {
 	inputs.property "loader_version", project.loader_version
 	inputs.property "java_version", project.java_version
 	inputs.property "nemos_upgrade_templates_version", project.nemos_upgrade_templates_version
+	inputs.property "yacl_version", project.yacl_version
 
 	filesMatching("fabric.mod.json") {
 		expand(
@@ -69,6 +72,7 @@ processResources {
 				"loader_version": inputs.properties.loader_version,
 				"java_version": inputs.properties.java_version,
 				"nemos_upgrade_templates_version": inputs.properties.nemos_upgrade_templates_version,
+				"yacl_version": inputs.properties.yacl_version,
 		)
 	}
 }
@@ -134,6 +138,8 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
 	mainFile.addJavaVersion("Java 25")
 	mainFile.addRequirement("fabric-api")
 	mainFile.addRequirement("nemos-upgrade-templates")
+	mainFile.addOptional("yacl")
+	mainFile.addOptional("modmenu")
 }
 
 modrinth {
@@ -146,6 +152,8 @@ modrinth {
 	dependencies {
 		required.project("fabric-api")
 		required.project("nemos-upgrade-templates")
+		optional.project("yacl")
+		optional.project("modmenu")
 	}
 }
 tasks.modrinth.dependsOn(tasks.jar)

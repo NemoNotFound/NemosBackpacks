@@ -2,6 +2,7 @@ package com.nemonotfound.nemos.backpacks;
 
 import com.nemonotfound.nemos.backpacks.client.BackpackCategories;
 import com.nemonotfound.nemos.backpacks.client.BackpackKeyMappings;
+import com.nemonotfound.nemos.backpacks.client.config.BackpacksConfig;
 import com.nemonotfound.nemos.backpacks.client.gui.screens.BackpackMenuScreens;
 import com.nemonotfound.nemos.backpacks.client.model.BackpackModel;
 import com.nemonotfound.nemos.backpacks.client.renderer.BackpackRenderLayer;
@@ -15,6 +16,7 @@ public class NemosBackpacksClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        BackpacksConfig.load();
         ModelLayerRegistry.registerModelLayer(BackpackModel.LAYER_LOCATION, BackpackModel::createBodyLayer);
         LivingEntityRenderLayerRegistrationCallback.EVENT.register((_, renderer, registrationHelper, context) -> {
             if (renderer instanceof AvatarRenderer<?> avatarRenderer) {
