@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.nemonotfound.nemos.backpacks.client.model.BackpackModel;
 import com.nemonotfound.nemos.backpacks.helper.BackpackGetter;
 import com.nemonotfound.nemos.backpacks.tags.BackpackItemTags;
+import com.nemonotfound.nemos.backpacks.world.item.BackpackItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.player.PlayerModel;
 import net.minecraft.client.renderer.SubmitNodeCollector;
@@ -41,9 +42,26 @@ public class BackpackRenderLayer extends RenderLayer<@NotNull AvatarRenderState,
             return;
         }
 
-        Identifier itemId = BuiltInRegistries.ITEM.getKey(backpack.getItem());
-        Identifier texture = Identifier.fromNamespaceAndPath(itemId.getNamespace(), "textures/overlay/" + itemId.getPath() + ".png");
+        var backpackItem = (BackpackItem) backpack.getItem();
+        var namespace = BuiltInRegistries.ITEM.getKey(backpackItem).getNamespace();
+        var dyeColor = backpackItem.getDyeColor();
+        var colorName = dyeColor == null ? "default" : dyeColor.getName();
 
+        Identifier baseColorTexture = Identifier.fromNamespaceAndPath(
+                namespace,
+                "textures/overlay/backpack/base/" + colorName + ".png"
+        );
+        Identifier materialOverlayTexture = Identifier.fromNamespaceAndPath(
+                namespace,
+                "textures/overlay/backpack/material/" + backpackItem.getBackpackMaterial().getName() + ".png"
+        );
+
+        submitModel(poseStack, submitNodeCollector, light, renderState, baseColorTexture);
+        submitModel(poseStack, submitNodeCollector, light, renderState, materialOverlayTexture);
+    }
+
+    private void submitModel(PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int light,
+                             AvatarRenderState renderState, Identifier texture) {
         submitNodeCollector.submitModel(
                 model,
                 renderState,
