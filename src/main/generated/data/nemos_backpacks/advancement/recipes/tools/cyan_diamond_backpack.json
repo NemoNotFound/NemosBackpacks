@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nemos_backpacks:cyan_diamond_backpack"
+        "recipes": "nemos_backpacks:cyan_diamond_backpack"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

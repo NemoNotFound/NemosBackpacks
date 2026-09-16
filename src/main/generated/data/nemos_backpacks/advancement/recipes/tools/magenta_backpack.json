@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nemos_backpacks:magenta_backpack"
+        "recipes": "nemos_backpacks:magenta_backpack"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nemos_backpacks:blue_copper_backpack"
+        "recipes": "nemos_backpacks:blue_copper_backpack"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

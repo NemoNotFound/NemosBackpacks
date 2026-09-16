@@ -83,7 +83,7 @@ public class BackpackItem extends Item {
         var components = itemStack.getComponents();
         var itemContainerContents = components.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY);
         var container = new SimpleContainer(SLOTS_PER_ROW * backpackMaterial.getRows());
-        var items = itemContainerContents.allItemsCopyStream().toList();
+        var items = itemContainerContents.itemCopies().toList();
 
         for (int i = 0; i < items.size(); i++) {
             container.setItem(i, items.get(i));
@@ -144,7 +144,7 @@ public class BackpackItem extends Item {
 
     private SimpleContainer getContainer(ItemContainerContents itemContainerContents) {
         var container = new SimpleContainer(SLOTS_PER_ROW * backpackMaterial.getRows());
-        var items = itemContainerContents.allItemsCopyStream().toList();
+        var items = itemContainerContents.itemCopies().toList();
 
         for (int i = 0; i < items.size(); i++) {
             container.setItem(i, items.get(i));

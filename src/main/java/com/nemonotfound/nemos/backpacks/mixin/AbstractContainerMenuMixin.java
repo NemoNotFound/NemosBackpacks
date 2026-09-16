@@ -3,6 +3,7 @@ package com.nemonotfound.nemos.backpacks.mixin;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.nemonotfound.nemos.backpacks.world.item.BackpackItem;
 import net.minecraft.core.NonNullList;
+import net.minecraft.util.Prediction;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -87,7 +88,7 @@ public abstract class AbstractContainerMenuMixin {
             slot.onTake(player, slotItemStack);
 
             if (!inventory.add(slotItemStack)) {
-                player.drop(slotItemStack, true);
+                player.drop(slotItemStack, true, Prediction.PREDICTED);
             }
         } else {
             inventory.setItem(button, slotItemStack);

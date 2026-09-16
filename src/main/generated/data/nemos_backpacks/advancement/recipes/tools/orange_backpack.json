@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nemos_backpacks:orange_backpack"
+        "recipes": "nemos_backpacks:orange_backpack"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nemos_backpacks:yellow_diamond_backpack"
+        "recipes": "nemos_backpacks:yellow_diamond_backpack"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

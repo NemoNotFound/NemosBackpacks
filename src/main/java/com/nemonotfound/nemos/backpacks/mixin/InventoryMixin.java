@@ -10,6 +10,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.util.Prediction;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -108,7 +109,7 @@ public abstract class InventoryMixin implements BackpackGetter {
     @Inject(method = "dropAll", at = @At("TAIL"))
     private void dropBackpackItem(CallbackInfo ci) {
         if (!nemosBackpacks$backpackItemStack.isEmpty()) {
-            player.drop(nemosBackpacks$backpackItemStack, true, false);
+            player.drop(nemosBackpacks$backpackItemStack, true, Prediction.SERVER_ONLY);
             nemosBackpacks$backpackItemStack = ItemStack.EMPTY;
         }
     }

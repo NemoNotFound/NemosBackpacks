@@ -56,8 +56,9 @@ public class BackpackRenderLayer extends RenderLayer<@NotNull AvatarRenderState,
                 "textures/overlay/backpack/material/" + backpackItem.getBackpackMaterial().getName() + ".png"
         );
 
-        submitModel(poseStack, submitNodeCollector, light, renderState, baseColorTexture);
-        submitModel(poseStack, submitNodeCollector, light, renderState, materialOverlayTexture);
+        //TODO: Add once textures are added
+        //submitModel(poseStack, submitNodeCollector, light, renderState, baseColorTexture);
+        //submitModel(poseStack, submitNodeCollector, light, renderState, materialOverlayTexture);
     }
 
     private void submitModel(PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int light,
@@ -69,8 +70,7 @@ public class BackpackRenderLayer extends RenderLayer<@NotNull AvatarRenderState,
                 texture,
                 light,
                 OverlayTexture.NO_OVERLAY,
-                renderState.outlineColor,
-                null
+                renderState.outlineColor
         );
     }
 }
