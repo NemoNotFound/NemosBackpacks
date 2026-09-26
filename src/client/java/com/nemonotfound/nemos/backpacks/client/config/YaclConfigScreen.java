@@ -15,7 +15,7 @@ final class YaclConfigScreen {
     private YaclConfigScreen() {}
 
     static Screen create(Screen parent) {
-        var config = BackpacksConfig.get();
+        var config = BackpacksConfig.getInstance();
 
         return YetAnotherConfigLib.createBuilder()
                 .title(Component.translatable(MOD_ID + ".config.title"))
@@ -25,6 +25,12 @@ final class YaclConfigScreen {
                                 .name(Component.translatable(MOD_ID + ".config.show_hud_icon"))
                                 .description(OptionDescription.of(Component.translatable(MOD_ID + ".config.show_hud_icon.description")))
                                 .binding(true, () -> config.showBackpackHudIcon, value -> config.showBackpackHudIcon = value)
+                                .controller(BooleanControllerBuilder::create)
+                                .build())
+                        .option(Option.<Boolean>createBuilder()
+                                .name(Component.translatable(MOD_ID + ".config.show_backpack_model"))
+                                .description(OptionDescription.of(Component.translatable(MOD_ID + ".config.show_backpack_model.description")))
+                                .binding(false, () -> config.showBackpackModel, value -> config.showBackpackModel = value)
                                 .controller(BooleanControllerBuilder::create)
                                 .build())
                         .build())

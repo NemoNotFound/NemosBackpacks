@@ -38,7 +38,7 @@ public abstract class HudMixin {
         var player = this.getCameraPlayer();
 
         if (
-                !BackpacksConfig.get().showBackpackHudIcon
+                !BackpacksConfig.getInstance().showBackpackHudIcon
                         || player == null
                         || !Optional.ofNullable(this.minecraft.gameMode).map(MultiPlayerGameMode::canHurtPlayer).orElse(true)
         ) {

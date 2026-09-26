@@ -161,6 +161,8 @@ public class EnglishLanguageProvider extends FabricLanguageProvider {
 
         translationBuilder.add(MOD_ID + ".config.title", "Nemo's Backpacks");
         translationBuilder.add(MOD_ID + ".config.category.general", "General");
+        translationBuilder.add(MOD_ID + ".config.show_backpack_model", "Enable Backpack Model");
+        translationBuilder.add(MOD_ID + ".config.show_backpack_model.description", "Shows equipped backpack models on all players.");
         translationBuilder.add(MOD_ID + ".config.show_hud_icon", "Show Backpack HUD Icon");
         translationBuilder.add(MOD_ID + ".config.show_hud_icon.description", "Shows the equipped backpack icon above the hotbar.");
     }

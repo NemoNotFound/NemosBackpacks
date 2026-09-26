@@ -104,6 +104,8 @@
   "itemGroup.nemos_backpacks": "Nemo's Backpacks",
   "key.category.nemos_backpacks.nemos_backpacks": "Nemo's Backpacks",
   "nemos_backpacks.config.category.general": "General",
+  "nemos_backpacks.config.show_backpack_model": "Enable Backpack Model",
+  "nemos_backpacks.config.show_backpack_model.description": "Shows equipped backpack models on all players.",
   "nemos_backpacks.config.show_hud_icon": "Show Backpack HUD Icon",
   "nemos_backpacks.config.show_hud_icon.description": "Shows the equipped backpack icon above the hotbar.",
   "nemos_backpacks.config.title": "Nemo's Backpacks",

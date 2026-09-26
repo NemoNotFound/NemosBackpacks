@@ -1,6 +1,7 @@
 package com.nemonotfound.nemos.backpacks.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.nemonotfound.nemos.backpacks.client.config.BackpacksConfig;
 import com.nemonotfound.nemos.backpacks.client.model.BackpackModel;
 import com.nemonotfound.nemos.backpacks.helper.BackpackGetter;
 import com.nemonotfound.nemos.backpacks.tags.BackpackItemTags;
@@ -30,6 +31,10 @@ public class BackpackRenderLayer extends RenderLayer<@NotNull AvatarRenderState,
     @Override
     public void submit(@NotNull PoseStack poseStack, @NotNull SubmitNodeCollector submitNodeCollector, int light,
                        AvatarRenderState renderState, float yRot, float xRot) {
+        if (!BackpacksConfig.getInstance().showBackpackModel) {
+            return;
+        }
+
         var level = Minecraft.getInstance().level;
 
         if (level == null || !(level.getEntity(renderState.id) instanceof Player player)) {
@@ -56,9 +61,8 @@ public class BackpackRenderLayer extends RenderLayer<@NotNull AvatarRenderState,
                 "textures/overlay/backpack/material/" + backpackItem.getBackpackMaterial().getName() + ".png"
         );
 
-        //TODO: Add once textures are added
-        //submitModel(poseStack, submitNodeCollector, light, renderState, baseColorTexture);
-        //submitModel(poseStack, submitNodeCollector, light, renderState, materialOverlayTexture);
+        submitModel(poseStack, submitNodeCollector, light, renderState, baseColorTexture);
+        submitModel(poseStack, submitNodeCollector, light, renderState, materialOverlayTexture);
     }
 
     private void submitModel(PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int light,

@@ -16,10 +16,11 @@ public final class BackpacksConfig {
     private static BackpacksConfig instance = new BackpacksConfig();
 
     public boolean showBackpackHudIcon = true;
+    public boolean showBackpackModel = true;
 
     private BackpacksConfig() {}
 
-    public static BackpacksConfig get() {
+    public static BackpacksConfig getInstance() {
         return instance;
     }
 
